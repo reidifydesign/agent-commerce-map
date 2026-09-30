@@ -1,7 +1,7 @@
 {
   "name": "agent-commerce-map",
   "version": "0.1.0",
-  "description": "A dated crosswalk of ACP, UCP and schema.org Product fields, with a plain verdict on which agent-commerce protocol a small shop can ignore.",
+  "description": "A crosswalk of three descriptions of the same product record (ACP, UCP and schema.org Product), plus a dated opinion on which agent-commerce protocol a small shop can ignore.",
   "type": "module",
   "bin": {
     "agent-commerce-map": "bin/agent-commerce-map.mjs"

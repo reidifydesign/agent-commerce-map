@@ -1,10 +1,10 @@
 # Which agent-commerce protocol can a small shop ignore?
 
-Verified 2026-09-30. Review by 2026-12-31. Generated from `data/verdict.json` by `npm run docs`. Do not edit by hand.
+A dated opinion. Read 2026-09-30, review by 2026-12-31. Generated from `data/verdict.json` by `npm run docs`. Do not edit by hand.
 
 A small shop here means a business that sells products online through a hosted platform (Shopify, WooCommerce, Etsy, Wix and the like), has no developers on staff, and does not want to run its own checkout API.
 
-This is one reading of dated public sources, not a guarantee and not financial advice. Each claim carries the page it came from and the date it was read. Protocols change, so check the date before you act.
+This is a dated opinion, not a guarantee and not financial advice. It is one reading of public sources, made on the read date above and due for review on the review date above. Each claim carries the page it came from and the date it was read. Protocols change, so check the date before you act.
 
 ## The short answer
 

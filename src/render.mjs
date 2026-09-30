@@ -17,7 +17,7 @@ export function wrap(s, width = 92, indent = '  ') {
 }
 
 export function renderVerdict(v, { full = false } = {}) {
-  const L = [`Which agent-commerce protocol can a small shop ignore?   (verified ${v.meta.verified}, review by ${v.meta.next_review})`, ''];
+  const L = [`Which agent-commerce protocol can a small shop ignore?   (a dated opinion: read ${v.meta.verified}, review by ${v.meta.next_review})`, ''];
   const w = Math.max(...v.items.map((i) => i.protocol.split(' (')[0].length));
   for (const i of v.items) L.push(`${(LABEL[i.verdict] || i.verdict).padEnd(18)}${i.protocol.split(' (')[0].padEnd(w + 2)}${i.headline}`);
   if (full) {

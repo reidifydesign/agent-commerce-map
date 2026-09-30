@@ -3,7 +3,7 @@
     "verified": "2026-09-30",
     "next_review": "2026-12-31",
     "who": "A small shop here means a business that sells products online through a hosted platform (Shopify, WooCommerce, Etsy, Wix and the like), has no developers on staff, and does not want to run its own checkout API.",
-    "how_to_read": "This is one reading of dated public sources, not a guarantee and not financial advice. Each claim carries the page it came from and the date it was read. Protocols change, so check the date before you act.",
+    "how_to_read": "This is a dated opinion, not a guarantee and not financial advice. It is one reading of public sources, made on the read date above and due for review on the review date above. Each claim carries the page it came from and the date it was read. Protocols change, so check the date before you act.",
     "caveat": "Neither the ACP nor the UCP specification text mentions schema.org or JSON-LD (searched in the specs on 2026-09-30). Both take product data through feeds or a merchant account such as Google Merchant Center. So the crosswalk is a map between three descriptions of the same product record. It is not evidence that an agent reads your page markup into either protocol."
   },
   "items": [

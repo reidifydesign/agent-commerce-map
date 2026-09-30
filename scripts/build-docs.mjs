@@ -49,7 +49,7 @@ export function buildWhichDoc() {
   const v = loadVerdict();
   return `# Which agent-commerce protocol can a small shop ignore?
 
-Verified ${v.meta.verified}. Review by ${v.meta.next_review}. Generated from \`data/verdict.json\` by \`npm run docs\`. Do not edit by hand.
+A dated opinion. Read ${v.meta.verified}, review by ${v.meta.next_review}. Generated from \`data/verdict.json\` by \`npm run docs\`. Do not edit by hand.
 
 ${v.meta.who}
 

@@ -1,6 +1,6 @@
 # agent-commerce-map
 
-A dated crosswalk of ACP, UCP and schema.org Product fields, with a plain verdict on which agent-commerce protocol a small shop can ignore.
+A crosswalk of three descriptions of the same product record: ACP, UCP and schema.org Product. It maps field to field. It does not show that schema.org markup feeds ACP or UCP, because neither specification says it does. A dated opinion on which agent-commerce protocol a small shop can ignore sits alongside.
 
 ![The verdict command run in a terminal, listing five routes: clean product data to do now, UCP to wait on, ACP checkout to ignore, AP2 and x402 to ignore](docs/verdict.png)
 
@@ -18,7 +18,7 @@ When this was started on 2026-09-30, searches turned up protocol-level compariso
 
 Two things to know up front:
 
-- The answer for most small shops is short: keep one accurate product record, let your platform do the protocol work, and do not build checkout endpoints. The reasons and the sources, with dates, are in [docs/WHICH-PROTOCOL.md](docs/WHICH-PROTOCOL.md).
+- The verdict is a dated opinion, read on 2026-09-30 and due for review by 2026-12-31, not a fact about the protocols. The answer it gives for most small shops is short: keep one accurate product record, let your platform do the protocol work, and do not build checkout endpoints. The reasons and the sources, with dates, are in [docs/WHICH-PROTOCOL.md](docs/WHICH-PROTOCOL.md).
 - Neither the ACP nor the UCP specification mentions schema.org or JSON-LD (searched 2026-09-30). Both take product data through feeds or a merchant account. So this crosswalk maps three descriptions of the same product record. It is not evidence that an agent reads your page markup into either protocol.
 
 ## Use it
