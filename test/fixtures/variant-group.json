@@ -1,0 +1,61 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProductGroup",
+      "@id": "https://shop.example/products/linen-shirt#group",
+      "productGroupID": "LINEN-SHIRT",
+      "name": "Linen shirt",
+      "description": "A relaxed linen shirt. Written for this test, not a real shop.",
+      "url": "https://shop.example/products/linen-shirt",
+      "image": [
+        "https://shop.example/img/linen-shirt-front.jpg",
+        { "@type": "ImageObject", "contentUrl": "https://shop.example/img/linen-shirt-back.jpg", "width": 1200, "height": 1600 }
+      ],
+      "brand": { "@type": "Brand", "name": "Example Linen" },
+      "category": "Apparel & Accessories > Clothing > Shirts",
+      "keywords": "linen, shirt, summer",
+      "countryOfOrigin": { "@type": "Country", "name": "India" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": 4.6, "bestRating": 5, "worstRating": 1, "ratingCount": 87 },
+      "variesBy": ["https://schema.org/color", "https://schema.org/size"],
+      "hasVariant": [
+        {
+          "@type": "Product",
+          "sku": "LS-WHT-M",
+          "name": "Linen shirt, white, M",
+          "gtin13": "4006381333931",
+          "color": "White",
+          "size": "M",
+          "url": "https://shop.example/products/linen-shirt?v=wht-m",
+          "offers": {
+            "@type": "Offer",
+            "price": "89.50",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": { "@type": "Organization", "name": "Example Linen" },
+            "shippingDetails": { "@type": "OfferShippingDetails" },
+            "priceSpecification": [
+              { "@type": "UnitPriceSpecification", "priceType": "https://schema.org/ListPrice", "price": "110.00", "priceCurrency": "USD" }
+            ]
+          }
+        },
+        {
+          "@type": "Product",
+          "sku": "LS-WHT-L",
+          "color": "White",
+          "size": "L",
+          "offers": { "@type": "Offer", "price": 89.5, "priceCurrency": "USD", "availability": "https://schema.org/LimitedAvailability" }
+        },
+        {
+          "@type": "Product",
+          "sku": "LS-BLU-M",
+          "name": "Linen shirt, blue, M",
+          "color": "Blue",
+          "size": "M",
+          "offers": { "@type": "Offer", "price": "94.00", "priceCurrency": "USD", "availability": "https://schema.org/OutOfStock" }
+        }
+      ]
+    }
+  ]
+}

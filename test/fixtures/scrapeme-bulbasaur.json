@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org/",
+  "@graph": [
+    {
+      "@context": "https://schema.org/",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "name": "Home", "@id": "https://scrapeme.live" } },
+        { "@type": "ListItem", "position": 2, "item": { "name": "Pokemon", "@id": "https://scrapeme.live/product-category/pokemon/" } },
+        { "@type": "ListItem", "position": 3, "item": { "name": "Bulbasaur", "@id": "https://scrapeme.live/shop/Bulbasaur/" } }
+      ]
+    },
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "@id": "https://scrapeme.live/shop/Bulbasaur/#product",
+      "name": "Bulbasaur",
+      "url": "https://scrapeme.live/shop/Bulbasaur/",
+      "description": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
+      "image": "https://scrapeme.live/wp-content/uploads/2018/08/001.png",
+      "sku": "4391",
+      "offers": [
+        {
+          "@type": "Offer",
+          "priceSpecification": [
+            { "@type": "UnitPriceSpecification", "price": "63.00", "priceCurrency": "GBP", "validThrough": "2027-12-31", "valueAddedTaxIncluded": false }
+          ],
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://scrapeme.live/shop/Bulbasaur/",
+          "seller": { "@type": "Organization", "name": "ScrapeMe", "url": "https://scrapeme.live" },
+          "price": "63.00",
+          "priceCurrency": "GBP"
+        }
+      ]
+    }
+  ]
+}
