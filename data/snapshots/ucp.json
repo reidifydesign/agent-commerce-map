@@ -1,0 +1,663 @@
+{
+ "source": {
+  "repo": "Universal-Commerce-Protocol/ucp",
+  "ref": "cd78fb38e819de77d9b527d110476eccb876f1bd",
+  "tag": "v2026-08-25",
+  "label": "release v2026-08-25",
+  "root": "source/schemas/"
+ },
+ "files": {
+  "shopping/types/product.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/product.json",
+   "title": "Product",
+   "description": "A product in the catalog with variants and options.",
+   "type": "object",
+   "required": [
+    "id",
+    "title",
+    "description",
+    "price_range",
+    "variants"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Global ID (GID) uniquely identifying this product."
+    },
+    "handle": {
+     "type": "string",
+     "description": "URL-safe slug for SEO-friendly URLs (e.g., 'blue-runner-pro'). Use id for stable API references."
+    },
+    "title": {
+     "type": "string",
+     "description": "Product title."
+    },
+    "description": {
+     "$ref": "../../common/types/description.json",
+     "description": "Product description in one or more formats."
+    },
+    "url": {
+     "type": "string",
+     "format": "uri",
+     "description": "Canonical product page URL."
+    },
+    "categories": {
+     "type": "array",
+     "items": {
+      "$ref": "category.json"
+     },
+     "description": "Product categories with optional taxonomy identifiers."
+    },
+    "price_range": {
+     "$ref": "../../common/types/price_range.json",
+     "description": "Price range across all variants."
+    },
+    "list_price_range": {
+     "$ref": "../../common/types/price_range.json",
+     "description": "List price range before discounts (for strikethrough display)."
+    },
+    "media": {
+     "type": "array",
+     "items": {
+      "$ref": "../../common/types/media.json"
+     },
+     "description": "Product media (images, videos, 3D models). First item is the featured media for listings."
+    },
+    "options": {
+     "type": "array",
+     "items": {
+      "$ref": "product_option.json"
+     },
+     "description": "Product options (Size, Color, etc.)."
+    },
+    "variants": {
+     "type": "array",
+     "items": {
+      "$ref": "variant.json"
+     },
+     "minItems": 1,
+     "description": "Purchasable variants of this product. First item is the featured variant for listings."
+    },
+    "rating": {
+     "$ref": "rating.json",
+     "description": "Aggregate product rating."
+    },
+    "tags": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Product tags for categorization and search."
+    },
+    "metadata": {
+     "type": "object",
+     "description": "Business-defined custom data extending the standard product model."
+    }
+   }
+  },
+  "shopping/types/variant.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/variant.json",
+   "title": "Variant",
+   "description": "A purchasable variant of a product with specific option selections.",
+   "type": "object",
+   "required": [
+    "id",
+    "title",
+    "description",
+    "price"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Global ID (GID) uniquely identifying this variant. Used as item.id in checkout."
+    },
+    "sku": {
+     "type": "string",
+     "description": "Business-assigned identifier for inventory and fulfillment."
+    },
+    "barcodes": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "type",
+       "value"
+      ],
+      "properties": {
+       "type": {
+        "type": "string",
+        "description": "Barcode standard. Well-known values: UPC, EAN, ISBN, GTIN, JAN."
+       },
+       "value": {
+        "type": "string",
+        "description": "Barcode value."
+       }
+      }
+     },
+     "description": "Industry-standard product identifiers for cross-reference and correlation."
+    },
+    "handle": {
+     "type": "string",
+     "description": "URL-safe variant handle/slug."
+    },
+    "title": {
+     "type": "string",
+     "description": "Variant display title (e.g., 'Blue / Large')."
+    },
+    "description": {
+     "$ref": "../../common/types/description.json",
+     "description": "Variant description in one or more formats."
+    },
+    "url": {
+     "type": "string",
+     "format": "uri",
+     "description": "Canonical variant page URL."
+    },
+    "categories": {
+     "type": "array",
+     "items": {
+      "$ref": "category.json"
+     },
+     "description": "Variant categories with optional taxonomy identifiers."
+    },
+    "price": {
+     "$ref": "../../common/types/price.json",
+     "description": "Current selling price. Price is the amount per one whole `quantity_unit.unit` (for example, per lb or per hour); when `quantity_unit` is absent, it is per `each`. Line total is `price × quantity × 10^-scale`, computed and rounded once by the Business; `totals` remain authoritative."
+    },
+    "quantity_unit": {
+     "$ref": "../../common/types/quantity_unit.json",
+     "description": "Sale basis this variant's `quantity` is denominated in. The default sale basis is `each`, whose machine identity is (`C62`, 0); `C62` is the UN/CEFACT Rec20 code for one/each. An absent catalog descriptor encodes that default. An `increment` advertises the ordering granularity in steps (for example, `scale` 2 with `increment` 25 sells in 0.25-unit multiples)."
+    },
+    "list_price": {
+     "$ref": "../../common/types/price.json",
+     "description": "List price before discounts (for strikethrough display)."
+    },
+    "unit_price": {
+     "$ref": "unit_price.json",
+     "description": "Price per standard unit of measurement, for shelf-style comparison display. MAY be omitted when unit pricing does not apply."
+    },
+    "availability": {
+     "$ref": "availability.json",
+     "description": "Variant availability for purchase."
+    },
+    "options": {
+     "type": "array",
+     "items": {
+      "$ref": "selected_option.json"
+     },
+     "description": "Option values that define this variant (e.g., Color: Blue, Size: Large)."
+    },
+    "media": {
+     "type": "array",
+     "items": {
+      "$ref": "../../common/types/media.json"
+     },
+     "description": "Variant media (images, videos, 3D models). First item is the featured media for listings."
+    },
+    "rating": {
+     "$ref": "rating.json",
+     "description": "Variant rating."
+    },
+    "tags": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Variant tags for categorization and search."
+    },
+    "metadata": {
+     "type": "object",
+     "description": "Business-defined custom data extending the standard variant model."
+    },
+    "seller": {
+     "type": "object",
+     "description": "Optional seller context for this variant.",
+     "properties": {
+      "name": {
+       "type": "string",
+       "description": "Seller display name."
+      },
+      "links": {
+       "type": "array",
+       "items": {
+        "$ref": "../../common/types/link.json"
+       },
+       "description": "Seller policy and information links."
+      }
+     }
+    }
+   }
+  },
+  "common/types/description.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/description.json",
+   "title": "Description",
+   "description": "Description content in one or more formats. At least one format must be provided.",
+   "type": "object",
+   "properties": {
+    "plain": {
+     "type": "string",
+     "description": "Plain text content."
+    },
+    "html": {
+     "type": "string",
+     "description": "HTML-formatted content. Security: Platforms MUST sanitize before rendering—strip scripts, event handlers, and untrusted elements. Treat all rich text as untrusted input."
+    },
+    "markdown": {
+     "type": "string",
+     "description": "Markdown-formatted content."
+    }
+   },
+   "minProperties": 1
+  },
+  "shopping/types/category.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/category.json",
+   "title": "Category",
+   "description": "A product category with optional taxonomy identifier.",
+   "type": "object",
+   "required": [
+    "value"
+   ],
+   "properties": {
+    "value": {
+     "type": "string",
+     "description": "Category value or path (e.g., 'Apparel > Shirts', '1604')."
+    },
+    "taxonomy": {
+     "type": "string",
+     "description": "Source taxonomy. Well-known values: `google_product_category`, `shopify`, `merchant`."
+    }
+   }
+  },
+  "common/types/price_range.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/price_range.json",
+   "title": "Price Range",
+   "description": "A price range representing minimum and maximum values (e.g., a common example in retail shopping is when prices vary across product variants).",
+   "type": "object",
+   "required": [
+    "min",
+    "max"
+   ],
+   "properties": {
+    "min": {
+     "$ref": "price.json",
+     "description": "Minimum price in the range."
+    },
+    "max": {
+     "$ref": "price.json",
+     "description": "Maximum price in the range."
+    }
+   }
+  },
+  "common/types/media.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/media.json",
+   "title": "Media",
+   "description": "Media item (image, video, etc.).",
+   "type": "object",
+   "required": [
+    "type",
+    "url"
+   ],
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Media type. Well-known values: `image`, `video`, `model_3d`."
+    },
+    "url": {
+     "type": "string",
+     "format": "uri",
+     "description": "URL to the media resource."
+    },
+    "alt_text": {
+     "type": "string",
+     "description": "Accessibility text describing the media."
+    },
+    "width": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Width in pixels (for images/video)."
+    },
+    "height": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Height in pixels (for images/video)."
+    }
+   }
+  },
+  "shopping/types/product_option.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/product_option.json",
+   "title": "Product Option",
+   "description": "A product option such as size, color, or material.",
+   "type": "object",
+   "required": [
+    "name",
+    "values"
+   ],
+   "properties": {
+    "name": {
+     "type": "string",
+     "description": "Option name (e.g., 'Size', 'Color')."
+    },
+    "values": {
+     "type": "array",
+     "items": {
+      "$ref": "option_value.json"
+     },
+     "minItems": 1,
+     "description": "Available values for this option."
+    }
+   }
+  },
+  "shopping/types/rating.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/rating.json",
+   "title": "Rating",
+   "description": "Product rating aggregate.",
+   "type": "object",
+   "required": [
+    "value",
+    "scale_max"
+   ],
+   "properties": {
+    "value": {
+     "type": "number",
+     "minimum": 0,
+     "description": "Average rating value."
+    },
+    "scale_min": {
+     "type": "number",
+     "minimum": 0,
+     "default": 1,
+     "description": "Minimum value on the rating scale (e.g., 1 for 1-5 stars)."
+    },
+    "scale_max": {
+     "type": "number",
+     "minimum": 1,
+     "description": "Maximum value on the rating scale (e.g., 5 for 5-star)."
+    },
+    "count": {
+     "type": "integer",
+     "minimum": 0,
+     "description": "Number of reviews contributing to the rating."
+    }
+   }
+  },
+  "common/types/price.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/price.json",
+   "title": "Price",
+   "description": "Price with explicit currency.",
+   "type": "object",
+   "required": [
+    "amount",
+    "currency"
+   ],
+   "properties": {
+    "amount": {
+     "$ref": "amount.json",
+     "description": "Amount in ISO 4217 minor units. Use 0 for free items."
+    },
+    "currency": {
+     "type": "string",
+     "description": "ISO 4217 currency code (e.g., 'USD', 'EUR', 'GBP').",
+     "pattern": "^[A-Z]{3}$"
+    }
+   }
+  },
+  "common/types/quantity_unit.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/quantity_unit.json",
+   "title": "Quantity Unit",
+   "description": "Sale-basis descriptor for quantities: the shared unit descriptor plus the Business's ordering policy. Its unit-descriptor machine identity remains (`unit`, effective `scale`); `display_text` and `increment` are excluded from identity and mismatch comparison.",
+   "allOf": [
+    {
+     "$ref": "unit.json"
+    },
+    {
+     "type": "object",
+     "properties": {
+      "increment": {
+       "type": "integer",
+       "minimum": 1,
+       "default": 1,
+       "description": "Ordering granularity, denominated in steps: the Business sells this item in integer multiples of `increment` steps. Its effective value is the provided value or 1. Advisory merchandising policy, not a representational bound: Platform-authored quantities SHOULD be integer multiples of the effective increment; the Business MAY accept, revise, or reject an off-increment request with a recoverable business outcome and MUST NOT silently reinterpret it. Business-authored quantities (checkout revisions, fulfillment events, adjustments) are bounded only by `scale`."
+      }
+     }
+    }
+   ]
+  },
+  "shopping/types/unit_price.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/unit_price.json",
+   "title": "Unit Price",
+   "description": "Price per standard unit of measurement. MAY be omitted when unit pricing does not apply. `unit_price.currency` MUST equal `price.currency`; the comparator MUST NOT perform currency conversion. `measure.unit` and `reference.unit` MUST be identical; cross-unit conversion is not permitted. Their scales MAY differ; each value represents `value × 10^-scale`.",
+   "type": "object",
+   "required": [
+    "amount",
+    "currency",
+    "measure",
+    "reference"
+   ],
+   "properties": {
+    "amount": {
+     "$ref": "../../common/types/amount.json",
+     "description": "Unit price in ISO 4217 minor units. After satisfying the same-unit invariant, the Business MUST compute the comparator as `(price.amount / (measure.value × 10^-measure.scale)) × (reference.value × 10^-reference.scale)` and round it once to ISO 4217 minor units according to its pricing rules. The returned `unit_price.amount` is authoritative; the Platform MUST NOT recompute or substitute its own result."
+    },
+    "currency": {
+     "type": "string",
+     "pattern": "^[A-Z]{3}$",
+     "description": "ISO 4217 currency code."
+    },
+    "measure": {
+     "description": "Product quantity in packaging/content (for example, a 750 mL bottle), distinct from `quantity_unit`, which defines the sale basis. Its integer `value` MUST be at least 1.",
+     "allOf": [
+      {
+       "$ref": "../../common/types/measure.json"
+      },
+      {
+       "type": "object",
+       "properties": {
+        "value": {
+         "minimum": 1
+        }
+       }
+      }
+     ]
+    },
+    "reference": {
+     "description": "Denominator for unit price display (for example, per 100 mL or per 1 kg). Its integer `value` MUST be at least 1.",
+     "allOf": [
+      {
+       "$ref": "../../common/types/measure.json"
+      },
+      {
+       "type": "object",
+       "properties": {
+        "value": {
+         "minimum": 1
+        }
+       }
+      }
+     ]
+    }
+   }
+  },
+  "shopping/types/availability.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/availability.json",
+   "title": "Availability",
+   "description": "Availability of an item: whether it can be obtained, and a qualifying status.",
+   "type": "object",
+   "properties": {
+    "available": {
+     "type": "boolean",
+     "description": "Whether this can be obtained. See status for fulfillment details."
+    },
+    "status": {
+     "type": "string",
+     "description": "Qualifies available with fulfillment state. Well-known values: `in_stock`, `backorder`, `preorder`, `out_of_stock`, `discontinued`."
+    }
+   }
+  },
+  "shopping/types/selected_option.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/selected_option.json",
+   "title": "Selected Option",
+   "description": "A specific option selection on a variant (e.g., Size: Large).",
+   "type": "object",
+   "required": [
+    "name",
+    "label"
+   ],
+   "properties": {
+    "name": {
+     "type": "string",
+     "description": "Option name (e.g., 'Size')."
+    },
+    "id": {
+     "type": "string",
+     "description": "Optional option value identifier from option_value.id. When present, the server SHOULD use it for matching; name and label remain required for display."
+    },
+    "label": {
+     "type": "string",
+     "description": "Selected option label (e.g., 'Large')."
+    }
+   }
+  },
+  "common/types/link.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/link.json",
+   "title": "Link",
+   "type": "object",
+   "required": [
+    "type",
+    "url"
+   ],
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Type of link. Well-known values: `privacy_policy`, `terms_of_service`, `refund_policy`, `shipping_policy`, `faq`. Consumers SHOULD handle unknown values gracefully by displaying them using the `title` field or omitting the link."
+    },
+    "url": {
+     "type": "string",
+     "description": "The actual URL pointing to the content to be displayed.",
+     "format": "uri"
+    },
+    "title": {
+     "type": "string",
+     "description": "Optional display text for the link. When provided, use this instead of generating from type."
+    }
+   }
+  },
+  "shopping/types/option_value.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/shopping/types/option_value.json",
+   "title": "Option Value",
+   "description": "A selectable value for a product option.",
+   "type": "object",
+   "required": [
+    "label"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Optional server-assigned identifier for this option value. When present in a selected_option, the server SHOULD use it for matching instead of label."
+    },
+    "label": {
+     "type": "string",
+     "description": "Display text for this option value (e.g., 'Small', 'Blue')."
+    }
+   }
+  },
+  "common/types/amount.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/amount.json",
+   "title": "Amount",
+   "description": "Monetary amount in the currency's minor unit as defined by ISO 4217. Refer to the currency's exponent to determine minor-to-major ratio (e.g., 2 for USD, 0 for JPY, 3 for KWD).",
+   "type": "integer",
+   "minimum": 0,
+   "maximum": 9007199254740991
+  },
+  "common/types/unit.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/unit.json",
+   "title": "Unit",
+   "description": "A reusable unit descriptor for quantities and measures. Its unit-descriptor machine identity is (`unit`, effective `scale`), where effective `scale` is the provided `scale` or 0; `display_text` is excluded.",
+   "type": "object",
+   "required": [
+    "unit",
+    "display_text"
+   ],
+   "properties": {
+    "unit": {
+     "type": "string",
+     "description": "Stable machine identifier. The Business SHOULD use the exact UN/CEFACT Rec20 Common Code when one accurately identifies the unit. Otherwise, the Business MAY use a custom unit identifier and MUST use it consistently for the same unit. The Platform MUST treat an unrecognized identifier as opaque."
+    },
+    "scale": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 15,
+     "default": 0,
+     "description": "One step equals `10^-scale` of `unit`. When `unit` is `C62`, `scale`, if present, MUST be 0. The maximum of 15 is derived from the interoperable integer range: at scale 16 a single whole unit (10^16 steps) is no longer representable, so larger scales cannot denominate one unit of their own basis. Businesses needing finer granularity use a smaller unit."
+    },
+    "display_text": {
+     "type": "string",
+     "description": "Required printable unit label provided by the Business. The Platform MUST use it when it does not recognize `unit`; for a recognized UN/CEFACT Rec 20 Common Code, the Platform MAY substitute its own localized label. It does not participate in unit identity or mismatch comparison."
+    }
+   },
+   "allOf": [
+    {
+     "if": {
+      "properties": {
+       "unit": {
+        "const": "C62"
+       }
+      },
+      "required": [
+       "unit"
+      ]
+     },
+     "then": {
+      "properties": {
+       "scale": {
+        "const": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  "common/types/measure.json": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://ucp.dev/schemas/common/types/measure.json",
+   "title": "Measure",
+   "description": "A measure composed of an integer value and a unit descriptor. Its value is the integer count of `10^-scale` units of `unit`.",
+   "allOf": [
+    {
+     "$ref": "unit.json"
+    },
+    {
+     "type": "object",
+     "required": [
+      "value"
+     ],
+     "properties": {
+      "value": {
+       "type": "integer",
+       "minimum": -9007199254740991,
+       "maximum": 9007199254740991,
+       "description": "Integer count of `10^-scale` units of `unit`."
+      }
+     }
+    }
+   ]
+  }
+ },
+ "missing": []
+}

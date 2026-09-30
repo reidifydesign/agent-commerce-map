@@ -1,0 +1,2943 @@
+{
+ "source": {
+  "url": "https://schema.org/version/30.1/schemaorg-current-https.jsonld",
+  "label": "V30.1",
+  "ref": "5f2d8cdec99b7329459ef6584e94b6a840f88471"
+ },
+ "classes": {
+  "Thing": {
+   "found": true,
+   "parents": [],
+   "props": {
+    "additionalType": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "alternateName": {
+     "range": [
+      "Text"
+     ]
+    },
+    "description": {
+     "range": [
+      "Text",
+      "TextObject"
+     ]
+    },
+    "disambiguatingDescription": {
+     "range": [
+      "Text"
+     ]
+    },
+    "identifier": {
+     "range": [
+      "PropertyValue",
+      "Text",
+      "URL"
+     ]
+    },
+    "image": {
+     "range": [
+      "ImageObject",
+      "URL"
+     ]
+    },
+    "mainEntityOfPage": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "name": {
+     "range": [
+      "Text"
+     ]
+    },
+    "owner": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "potentialAction": {
+     "range": [
+      "Action"
+     ]
+    },
+    "sameAs": {
+     "range": [
+      "URL"
+     ]
+    },
+    "subjectOf": {
+     "range": [
+      "CreativeWork",
+      "Event"
+     ]
+    },
+    "url": {
+     "range": [
+      "URL"
+     ]
+    }
+   }
+  },
+  "Intangible": {
+   "found": true,
+   "parents": [
+    "Thing"
+   ],
+   "props": {}
+  },
+  "StructuredValue": {
+   "found": true,
+   "parents": [
+    "Intangible"
+   ],
+   "props": {}
+  },
+  "CreativeWork": {
+   "found": true,
+   "parents": [
+    "Thing"
+   ],
+   "props": {
+    "about": {
+     "range": [
+      "Thing"
+     ]
+    },
+    "abstract": {
+     "range": [
+      "Text"
+     ]
+    },
+    "accessMode": {
+     "range": [
+      "Text"
+     ]
+    },
+    "accessModeSufficient": {
+     "range": [
+      "ItemList"
+     ]
+    },
+    "accessibilityAPI": {
+     "range": [
+      "Text"
+     ]
+    },
+    "accessibilityControl": {
+     "range": [
+      "Text"
+     ]
+    },
+    "accessibilityFeature": {
+     "range": [
+      "Text"
+     ]
+    },
+    "accessibilityHazard": {
+     "range": [
+      "Text"
+     ]
+    },
+    "accessibilitySummary": {
+     "range": [
+      "Text"
+     ]
+    },
+    "accountablePerson": {
+     "range": [
+      "Person"
+     ]
+    },
+    "acquireLicensePage": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "aggregateRating": {
+     "range": [
+      "AggregateRating"
+     ]
+    },
+    "alternativeHeadline": {
+     "range": [
+      "Text"
+     ]
+    },
+    "archivedAt": {
+     "range": [
+      "URL",
+      "WebPage"
+     ]
+    },
+    "assesses": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "associatedMedia": {
+     "range": [
+      "MediaObject"
+     ]
+    },
+    "audience": {
+     "range": [
+      "Audience"
+     ]
+    },
+    "audio": {
+     "range": [
+      "AudioObject",
+      "Clip",
+      "MusicRecording"
+     ]
+    },
+    "author": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "award": {
+     "range": [
+      "Text"
+     ]
+    },
+    "awards": {
+     "range": [
+      "Text"
+     ]
+    },
+    "character": {
+     "range": [
+      "Person"
+     ]
+    },
+    "citation": {
+     "range": [
+      "CreativeWork",
+      "Text"
+     ]
+    },
+    "comment": {
+     "range": [
+      "Comment"
+     ]
+    },
+    "commentCount": {
+     "range": [
+      "Integer"
+     ]
+    },
+    "conditionsOfAccess": {
+     "range": [
+      "Text"
+     ]
+    },
+    "contentLocation": {
+     "range": [
+      "Place"
+     ]
+    },
+    "contentRating": {
+     "range": [
+      "Rating",
+      "Text"
+     ]
+    },
+    "contentReferenceTime": {
+     "range": [
+      "DateTime"
+     ]
+    },
+    "contributor": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "copyrightHolder": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "copyrightNotice": {
+     "range": [
+      "Text"
+     ]
+    },
+    "copyrightYear": {
+     "range": [
+      "Number"
+     ]
+    },
+    "correction": {
+     "range": [
+      "CorrectionComment",
+      "Text",
+      "URL"
+     ]
+    },
+    "countryOfOrigin": {
+     "range": [
+      "Country"
+     ]
+    },
+    "creativeWorkStatus": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "creator": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "creditText": {
+     "range": [
+      "Text"
+     ]
+    },
+    "dateCreated": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "dateModified": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "datePublished": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "digitalSourceType": {
+     "range": [
+      "IPTCDigitalSourceEnumeration"
+     ]
+    },
+    "discussionUrl": {
+     "range": [
+      "URL"
+     ]
+    },
+    "displayLocation": {
+     "range": [
+      "Place"
+     ]
+    },
+    "editEIDR": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "editor": {
+     "range": [
+      "Person"
+     ]
+    },
+    "educationalAlignment": {
+     "range": [
+      "AlignmentObject"
+     ]
+    },
+    "educationalLevel": {
+     "range": [
+      "DefinedTerm",
+      "Text",
+      "URL"
+     ]
+    },
+    "educationalUse": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "encoding": {
+     "range": [
+      "MediaObject"
+     ]
+    },
+    "encodingFormat": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "encodings": {
+     "range": [
+      "MediaObject"
+     ]
+    },
+    "exampleOfWork": {
+     "range": [
+      "CreativeWork"
+     ]
+    },
+    "expires": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "fileFormat": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "funder": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "funding": {
+     "range": [
+      "Grant"
+     ]
+    },
+    "genre": {
+     "range": [
+      "DefinedTerm",
+      "Text",
+      "URL"
+     ]
+    },
+    "hasPart": {
+     "range": [
+      "CreativeWork"
+     ]
+    },
+    "headline": {
+     "range": [
+      "Text"
+     ]
+    },
+    "inLanguage": {
+     "range": [
+      "Language",
+      "Text"
+     ]
+    },
+    "interactionStatistic": {
+     "range": [
+      "InteractionCounter"
+     ]
+    },
+    "interactivityType": {
+     "range": [
+      "Text"
+     ]
+    },
+    "interpretedAsClaim": {
+     "range": [
+      "Claim"
+     ]
+    },
+    "isAccessibleForFree": {
+     "range": [
+      "Boolean"
+     ]
+    },
+    "isBasedOn": {
+     "range": [
+      "CreativeWork",
+      "Product",
+      "URL"
+     ]
+    },
+    "isBasedOnUrl": {
+     "range": [
+      "CreativeWork",
+      "Product",
+      "URL"
+     ]
+    },
+    "isFamilyFriendly": {
+     "range": [
+      "Boolean"
+     ]
+    },
+    "isPartOf": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "keywords": {
+     "range": [
+      "DefinedTerm",
+      "Text",
+      "URL"
+     ]
+    },
+    "learningResourceType": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "license": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "locationCreated": {
+     "range": [
+      "Place"
+     ]
+    },
+    "mainEntity": {
+     "range": [
+      "Thing"
+     ]
+    },
+    "maintainer": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "material": {
+     "range": [
+      "Product",
+      "Text",
+      "URL"
+     ]
+    },
+    "materialExtent": {
+     "range": [
+      "QuantitativeValue",
+      "Text"
+     ]
+    },
+    "mentions": {
+     "range": [
+      "Thing"
+     ]
+    },
+    "offers": {
+     "range": [
+      "Demand",
+      "Offer"
+     ]
+    },
+    "pattern": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "position": {
+     "range": [
+      "Integer",
+      "Text"
+     ]
+    },
+    "producer": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "provider": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "publication": {
+     "range": [
+      "PublicationEvent"
+     ]
+    },
+    "publisher": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "publisherImprint": {
+     "range": [
+      "Organization"
+     ]
+    },
+    "publishingPrinciples": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "recordedAt": {
+     "range": [
+      "Event"
+     ]
+    },
+    "releasedEvent": {
+     "range": [
+      "PublicationEvent"
+     ]
+    },
+    "review": {
+     "range": [
+      "Review"
+     ]
+    },
+    "reviews": {
+     "range": [
+      "Review"
+     ]
+    },
+    "schemaVersion": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "sdDatePublished": {
+     "range": [
+      "Date"
+     ]
+    },
+    "sdLicense": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "sdPublisher": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "size": {
+     "range": [
+      "DefinedTerm",
+      "QuantitativeValue",
+      "SizeSpecification",
+      "Text"
+     ]
+    },
+    "sourceOrganization": {
+     "range": [
+      "Organization"
+     ]
+    },
+    "spatial": {
+     "range": [
+      "Place"
+     ]
+    },
+    "spatialCoverage": {
+     "range": [
+      "Place"
+     ]
+    },
+    "sponsor": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "teaches": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "temporal": {
+     "range": [
+      "DateTime",
+      "Text"
+     ]
+    },
+    "temporalCoverage": {
+     "range": [
+      "DateTime",
+      "Text",
+      "URL"
+     ]
+    },
+    "text": {
+     "range": [
+      "Text"
+     ]
+    },
+    "thumbnail": {
+     "range": [
+      "ImageObject"
+     ]
+    },
+    "thumbnailUrl": {
+     "range": [
+      "URL"
+     ]
+    },
+    "timeRequired": {
+     "range": [
+      "Duration"
+     ]
+    },
+    "translationOfWork": {
+     "range": [
+      "CreativeWork"
+     ]
+    },
+    "translator": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "typicalAgeRange": {
+     "range": [
+      "Text"
+     ]
+    },
+    "usageInfo": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "version": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    },
+    "video": {
+     "range": [
+      "Clip",
+      "VideoObject"
+     ]
+    },
+    "wordCount": {
+     "range": [
+      "Integer"
+     ]
+    },
+    "workExample": {
+     "range": [
+      "CreativeWork"
+     ]
+    },
+    "workTranslation": {
+     "range": [
+      "CreativeWork"
+     ]
+    }
+   }
+  },
+  "MediaObject": {
+   "found": true,
+   "parents": [
+    "CreativeWork"
+   ],
+   "props": {
+    "associatedArticle": {
+     "range": [
+      "NewsArticle"
+     ]
+    },
+    "bitrate": {
+     "range": [
+      "Text"
+     ]
+    },
+    "contentSize": {
+     "range": [
+      "Text"
+     ]
+    },
+    "contentUrl": {
+     "range": [
+      "URL"
+     ]
+    },
+    "duration": {
+     "range": [
+      "Duration",
+      "QuantitativeValue"
+     ]
+    },
+    "embedUrl": {
+     "range": [
+      "URL"
+     ]
+    },
+    "encodesCreativeWork": {
+     "range": [
+      "CreativeWork"
+     ]
+    },
+    "encodingFormat": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "endTime": {
+     "range": [
+      "DateTime",
+      "Time"
+     ]
+    },
+    "height": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    },
+    "ineligibleRegion": {
+     "range": [
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "interpretedAsClaim": {
+     "range": [
+      "Claim"
+     ]
+    },
+    "playerType": {
+     "range": [
+      "Text"
+     ]
+    },
+    "productionCompany": {
+     "range": [
+      "Organization"
+     ]
+    },
+    "regionsAllowed": {
+     "range": [
+      "Place"
+     ]
+    },
+    "requiresSubscription": {
+     "range": [
+      "Boolean",
+      "MediaSubscription"
+     ]
+    },
+    "sha256": {
+     "range": [
+      "Text"
+     ]
+    },
+    "startTime": {
+     "range": [
+      "DateTime",
+      "Time"
+     ]
+    },
+    "uploadDate": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "width": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    }
+   }
+  },
+  "ImageObject": {
+   "found": true,
+   "parents": [
+    "MediaObject"
+   ],
+   "props": {
+    "caption": {
+     "range": [
+      "MediaObject",
+      "Text"
+     ]
+    },
+    "embeddedTextCaption": {
+     "range": [
+      "Text"
+     ]
+    },
+    "exifData": {
+     "range": [
+      "PropertyValue",
+      "Text"
+     ]
+    },
+    "representativeOfPage": {
+     "range": [
+      "Boolean"
+     ]
+    }
+   }
+  },
+  "Product": {
+   "found": true,
+   "parents": [
+    "Thing"
+   ],
+   "props": {
+    "additionalProperty": {
+     "range": [
+      "PropertyValue"
+     ]
+    },
+    "aggregateRating": {
+     "range": [
+      "AggregateRating"
+     ]
+    },
+    "asin": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "audience": {
+     "range": [
+      "Audience"
+     ]
+    },
+    "authorizedRepresentative": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "award": {
+     "range": [
+      "Text"
+     ]
+    },
+    "awards": {
+     "range": [
+      "Text"
+     ]
+    },
+    "brand": {
+     "range": [
+      "Brand",
+      "Organization"
+     ]
+    },
+    "category": {
+     "range": [
+      "CategoryCode",
+      "PhysicalActivityCategory",
+      "Text",
+      "Thing",
+      "URL"
+     ]
+    },
+    "color": {
+     "range": [
+      "Text"
+     ]
+    },
+    "colorSwatch": {
+     "range": [
+      "ImageObject",
+      "URL"
+     ]
+    },
+    "consumerNotice": {
+     "range": [
+      "Text",
+      "TextObject",
+      "URL",
+      "WebContent"
+     ]
+    },
+    "countryOfAssembly": {
+     "range": [
+      "Text"
+     ]
+    },
+    "countryOfLastProcessing": {
+     "range": [
+      "Text"
+     ]
+    },
+    "countryOfOrigin": {
+     "range": [
+      "Country"
+     ]
+    },
+    "depth": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    },
+    "displayLocation": {
+     "range": [
+      "Place"
+     ]
+    },
+    "funding": {
+     "range": [
+      "Grant"
+     ]
+    },
+    "gtin": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "gtin12": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin13": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin14": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin8": {
+     "range": [
+      "Text"
+     ]
+    },
+    "hasAdultConsideration": {
+     "range": [
+      "AdultOrientedEnumeration"
+     ]
+    },
+    "hasCertification": {
+     "range": [
+      "Certification"
+     ]
+    },
+    "hasDigitalProductPassport": {
+     "range": [
+      "DigitalProductPassport",
+      "URL"
+     ]
+    },
+    "hasEnergyConsumptionDetails": {
+     "range": [
+      "EnergyConsumptionDetails"
+     ]
+    },
+    "hasGS1DigitalLink": {
+     "range": [
+      "URL"
+     ]
+    },
+    "hasMeasurement": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "hasMerchantReturnPolicy": {
+     "range": [
+      "MerchantReturnPolicy"
+     ]
+    },
+    "hasProductReturnPolicy": {
+     "range": [
+      "ProductReturnPolicy"
+     ]
+    },
+    "height": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    },
+    "importer": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "inProductGroupWithID": {
+     "range": [
+      "Text"
+     ]
+    },
+    "isAccessoryOrSparePartFor": {
+     "range": [
+      "Product"
+     ]
+    },
+    "isConsumableFor": {
+     "range": [
+      "Product"
+     ]
+    },
+    "isFamilyFriendly": {
+     "range": [
+      "Boolean"
+     ]
+    },
+    "isOftenBoughtWith": {
+     "range": [
+      "Product"
+     ]
+    },
+    "isRelatedTo": {
+     "range": [
+      "Product",
+      "Service"
+     ]
+    },
+    "isSimilarTo": {
+     "range": [
+      "Product",
+      "Service"
+     ]
+    },
+    "isVariantOf": {
+     "range": [
+      "ProductGroup",
+      "ProductModel"
+     ]
+    },
+    "itemCondition": {
+     "range": [
+      "OfferItemCondition"
+     ]
+    },
+    "keywords": {
+     "range": [
+      "DefinedTerm",
+      "Text",
+      "URL"
+     ]
+    },
+    "logo": {
+     "range": [
+      "ImageObject",
+      "URL"
+     ]
+    },
+    "manufacturer": {
+     "range": [
+      "Organization"
+     ]
+    },
+    "material": {
+     "range": [
+      "Product",
+      "Text",
+      "URL"
+     ]
+    },
+    "mobileUrl": {
+     "range": [
+      "Text"
+     ]
+    },
+    "model": {
+     "range": [
+      "ProductModel",
+      "Text"
+     ]
+    },
+    "mpn": {
+     "range": [
+      "Text"
+     ]
+    },
+    "negativeNotes": {
+     "range": [
+      "ItemList",
+      "ListItem",
+      "Text",
+      "WebContent"
+     ]
+    },
+    "nsn": {
+     "range": [
+      "Text"
+     ]
+    },
+    "offers": {
+     "range": [
+      "Demand",
+      "Offer"
+     ]
+    },
+    "pattern": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "positiveNotes": {
+     "range": [
+      "ItemList",
+      "ListItem",
+      "Text",
+      "WebContent"
+     ]
+    },
+    "productID": {
+     "range": [
+      "Text"
+     ]
+    },
+    "productionDate": {
+     "range": [
+      "Date"
+     ]
+    },
+    "purchaseDate": {
+     "range": [
+      "Date"
+     ]
+    },
+    "recycledContentPercentage": {
+     "range": [
+      "Number"
+     ]
+    },
+    "releaseDate": {
+     "range": [
+      "Date"
+     ]
+    },
+    "review": {
+     "range": [
+      "Review"
+     ]
+    },
+    "reviews": {
+     "range": [
+      "Review"
+     ]
+    },
+    "size": {
+     "range": [
+      "DefinedTerm",
+      "QuantitativeValue",
+      "SizeSpecification",
+      "Text"
+     ]
+    },
+    "sku": {
+     "range": [
+      "Text"
+     ]
+    },
+    "slogan": {
+     "range": [
+      "Text"
+     ]
+    },
+    "specification": {
+     "range": [
+      "PropertyValue"
+     ]
+    },
+    "substanceOfConcern": {
+     "range": [
+      "ChemicalSubstance",
+      "DefinedTerm",
+      "Text",
+      "URL"
+     ]
+    },
+    "weight": {
+     "range": [
+      "Mass",
+      "QuantitativeValue"
+     ]
+    },
+    "width": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    }
+   }
+  },
+  "ProductGroup": {
+   "found": true,
+   "parents": [
+    "Product"
+   ],
+   "props": {
+    "hasVariant": {
+     "range": [
+      "Product"
+     ]
+    },
+    "productGroupID": {
+     "range": [
+      "Text"
+     ]
+    },
+    "variesBy": {
+     "range": [
+      "DefinedTerm",
+      "PropertyValue",
+      "Text"
+     ]
+    }
+   }
+  },
+  "ProductModel": {
+   "found": true,
+   "parents": [
+    "Product"
+   ],
+   "props": {
+    "isVariantOf": {
+     "range": [
+      "ProductGroup",
+      "ProductModel"
+     ]
+    },
+    "predecessorOf": {
+     "range": [
+      "ProductModel"
+     ]
+    },
+    "successorOf": {
+     "range": [
+      "ProductModel"
+     ]
+    }
+   }
+  },
+  "Offer": {
+   "found": true,
+   "parents": [
+    "Intangible"
+   ],
+   "props": {
+    "acceptedPaymentMethod": {
+     "range": [
+      "LoanOrCredit",
+      "PaymentMethod",
+      "Text"
+     ]
+    },
+    "addOn": {
+     "range": [
+      "Offer"
+     ]
+    },
+    "additionalProperty": {
+     "range": [
+      "PropertyValue"
+     ]
+    },
+    "advanceBookingRequirement": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "aggregateRating": {
+     "range": [
+      "AggregateRating"
+     ]
+    },
+    "areaServed": {
+     "range": [
+      "AdministrativeArea",
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "asin": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "availability": {
+     "range": [
+      "ItemAvailability"
+     ]
+    },
+    "availabilityEnds": {
+     "range": [
+      "Date",
+      "DateTime",
+      "Time"
+     ]
+    },
+    "availabilityStarts": {
+     "range": [
+      "Date",
+      "DateTime",
+      "Time"
+     ]
+    },
+    "availableAtOrFrom": {
+     "range": [
+      "Place"
+     ]
+    },
+    "availableDeliveryMethod": {
+     "range": [
+      "DeliveryMethod"
+     ]
+    },
+    "businessFunction": {
+     "range": [
+      "BusinessFunction"
+     ]
+    },
+    "category": {
+     "range": [
+      "CategoryCode",
+      "PhysicalActivityCategory",
+      "Text",
+      "Thing",
+      "URL"
+     ]
+    },
+    "checkoutPageURLTemplate": {
+     "range": [
+      "Text"
+     ]
+    },
+    "deliveryLeadTime": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "eligibleCustomerType": {
+     "range": [
+      "BusinessEntityType"
+     ]
+    },
+    "eligibleDuration": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "eligibleQuantity": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "eligibleRegion": {
+     "range": [
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "eligibleTransactionVolume": {
+     "range": [
+      "PriceSpecification"
+     ]
+    },
+    "gtin": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "gtin12": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin13": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin14": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin8": {
+     "range": [
+      "Text"
+     ]
+    },
+    "hasAdultConsideration": {
+     "range": [
+      "AdultOrientedEnumeration"
+     ]
+    },
+    "hasDigitalProductPassport": {
+     "range": [
+      "DigitalProductPassport",
+      "URL"
+     ]
+    },
+    "hasGS1DigitalLink": {
+     "range": [
+      "URL"
+     ]
+    },
+    "hasMeasurement": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "hasMerchantReturnPolicy": {
+     "range": [
+      "MerchantReturnPolicy"
+     ]
+    },
+    "includesObject": {
+     "range": [
+      "TypeAndQuantityNode"
+     ]
+    },
+    "ineligibleRegion": {
+     "range": [
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "inventoryLevel": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "isFamilyFriendly": {
+     "range": [
+      "Boolean"
+     ]
+    },
+    "itemCondition": {
+     "range": [
+      "OfferItemCondition"
+     ]
+    },
+    "itemOffered": {
+     "range": [
+      "AggregateOffer",
+      "CreativeWork",
+      "Event",
+      "MenuItem",
+      "Product",
+      "Service",
+      "Trip"
+     ]
+    },
+    "itemPopularity": {
+     "range": [
+      "Number",
+      "QuantitativeValue"
+     ]
+    },
+    "leaseLength": {
+     "range": [
+      "Duration",
+      "QuantitativeValue"
+     ]
+    },
+    "mobileUrl": {
+     "range": [
+      "Text"
+     ]
+    },
+    "mpn": {
+     "range": [
+      "Text"
+     ]
+    },
+    "offeredBy": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "price": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    },
+    "priceCurrency": {
+     "range": [
+      "Text"
+     ]
+    },
+    "priceSpecification": {
+     "range": [
+      "PriceSpecification"
+     ]
+    },
+    "priceValidUntil": {
+     "range": [
+      "Date"
+     ]
+    },
+    "review": {
+     "range": [
+      "Review"
+     ]
+    },
+    "reviews": {
+     "range": [
+      "Review"
+     ]
+    },
+    "seller": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "serialNumber": {
+     "range": [
+      "Text"
+     ]
+    },
+    "shippingDetails": {
+     "range": [
+      "OfferShippingDetails"
+     ]
+    },
+    "sku": {
+     "range": [
+      "Text"
+     ]
+    },
+    "validForMemberTier": {
+     "range": [
+      "MemberProgramTier"
+     ]
+    },
+    "validFrom": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "validThrough": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "warranty": {
+     "range": [
+      "WarrantyPromise"
+     ]
+    }
+   }
+  },
+  "AggregateOffer": {
+   "found": true,
+   "parents": [
+    "Offer"
+   ],
+   "props": {
+    "highPrice": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    },
+    "lowPrice": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    },
+    "offerCount": {
+     "range": [
+      "Integer"
+     ]
+    },
+    "offers": {
+     "range": [
+      "Demand",
+      "Offer"
+     ]
+    }
+   }
+  },
+  "Demand": {
+   "found": true,
+   "parents": [
+    "Intangible"
+   ],
+   "props": {
+    "acceptedPaymentMethod": {
+     "range": [
+      "LoanOrCredit",
+      "PaymentMethod",
+      "Text"
+     ]
+    },
+    "advanceBookingRequirement": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "areaServed": {
+     "range": [
+      "AdministrativeArea",
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "asin": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "availability": {
+     "range": [
+      "ItemAvailability"
+     ]
+    },
+    "availabilityEnds": {
+     "range": [
+      "Date",
+      "DateTime",
+      "Time"
+     ]
+    },
+    "availabilityStarts": {
+     "range": [
+      "Date",
+      "DateTime",
+      "Time"
+     ]
+    },
+    "availableAtOrFrom": {
+     "range": [
+      "Place"
+     ]
+    },
+    "availableDeliveryMethod": {
+     "range": [
+      "DeliveryMethod"
+     ]
+    },
+    "businessFunction": {
+     "range": [
+      "BusinessFunction"
+     ]
+    },
+    "deliveryLeadTime": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "eligibleCustomerType": {
+     "range": [
+      "BusinessEntityType"
+     ]
+    },
+    "eligibleDuration": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "eligibleQuantity": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "eligibleRegion": {
+     "range": [
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "eligibleTransactionVolume": {
+     "range": [
+      "PriceSpecification"
+     ]
+    },
+    "gtin": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "gtin12": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin13": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin14": {
+     "range": [
+      "Text"
+     ]
+    },
+    "gtin8": {
+     "range": [
+      "Text"
+     ]
+    },
+    "includesObject": {
+     "range": [
+      "TypeAndQuantityNode"
+     ]
+    },
+    "ineligibleRegion": {
+     "range": [
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "inventoryLevel": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "itemCondition": {
+     "range": [
+      "OfferItemCondition"
+     ]
+    },
+    "itemOffered": {
+     "range": [
+      "AggregateOffer",
+      "CreativeWork",
+      "Event",
+      "MenuItem",
+      "Product",
+      "Service",
+      "Trip"
+     ]
+    },
+    "mpn": {
+     "range": [
+      "Text"
+     ]
+    },
+    "priceSpecification": {
+     "range": [
+      "PriceSpecification"
+     ]
+    },
+    "seller": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "serialNumber": {
+     "range": [
+      "Text"
+     ]
+    },
+    "sku": {
+     "range": [
+      "Text"
+     ]
+    },
+    "validFrom": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "validThrough": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "warranty": {
+     "range": [
+      "WarrantyPromise"
+     ]
+    }
+   }
+  },
+  "PriceSpecification": {
+   "found": true,
+   "parents": [
+    "StructuredValue"
+   ],
+   "props": {
+    "eligibleQuantity": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "eligibleTransactionVolume": {
+     "range": [
+      "PriceSpecification"
+     ]
+    },
+    "maxPrice": {
+     "range": [
+      "Number"
+     ]
+    },
+    "membershipPointsEarned": {
+     "range": [
+      "Number",
+      "QuantitativeValue"
+     ]
+    },
+    "minPrice": {
+     "range": [
+      "Number"
+     ]
+    },
+    "price": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    },
+    "priceCurrency": {
+     "range": [
+      "Text"
+     ]
+    },
+    "validForMemberTier": {
+     "range": [
+      "MemberProgramTier"
+     ]
+    },
+    "validFrom": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "validThrough": {
+     "range": [
+      "Date",
+      "DateTime"
+     ]
+    },
+    "valueAddedTaxIncluded": {
+     "range": [
+      "Boolean"
+     ]
+    }
+   }
+  },
+  "UnitPriceSpecification": {
+   "found": true,
+   "parents": [
+    "PriceSpecification"
+   ],
+   "props": {
+    "billingDuration": {
+     "range": [
+      "Duration",
+      "Number",
+      "QuantitativeValue"
+     ]
+    },
+    "billingIncrement": {
+     "range": [
+      "Number"
+     ]
+    },
+    "billingStart": {
+     "range": [
+      "Number"
+     ]
+    },
+    "priceComponentType": {
+     "range": [
+      "PriceComponentTypeEnumeration"
+     ]
+    },
+    "priceType": {
+     "range": [
+      "PriceTypeEnumeration",
+      "Text"
+     ]
+    },
+    "referenceQuantity": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "unitCode": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "unitText": {
+     "range": [
+      "Text"
+     ]
+    }
+   }
+  },
+  "QuantitativeValue": {
+   "found": true,
+   "parents": [
+    "StructuredValue"
+   ],
+   "props": {
+    "additionalProperty": {
+     "range": [
+      "PropertyValue"
+     ]
+    },
+    "maxValue": {
+     "range": [
+      "Number"
+     ]
+    },
+    "minValue": {
+     "range": [
+      "Number"
+     ]
+    },
+    "unitCode": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "unitText": {
+     "range": [
+      "Text"
+     ]
+    },
+    "value": {
+     "range": [
+      "Boolean",
+      "Number",
+      "QualitativeValue",
+      "StructuredValue",
+      "Text"
+     ]
+    },
+    "valueReference": {
+     "range": [
+      "DefinedTerm",
+      "Enumeration",
+      "MeasurementTypeEnumeration",
+      "PropertyValue",
+      "QualitativeValue",
+      "QuantitativeValue",
+      "StructuredValue",
+      "Text"
+     ]
+    }
+   }
+  },
+  "PropertyValue": {
+   "found": true,
+   "parents": [
+    "StructuredValue"
+   ],
+   "props": {
+    "maxValue": {
+     "range": [
+      "Number"
+     ]
+    },
+    "measurementMethod": {
+     "range": [
+      "DefinedTerm",
+      "MeasurementMethodEnum",
+      "Text",
+      "URL"
+     ]
+    },
+    "measurementTechnique": {
+     "range": [
+      "DefinedTerm",
+      "MeasurementMethodEnum",
+      "Text",
+      "URL"
+     ]
+    },
+    "minValue": {
+     "range": [
+      "Number"
+     ]
+    },
+    "propertyID": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "unitCode": {
+     "range": [
+      "Text",
+      "URL"
+     ]
+    },
+    "unitText": {
+     "range": [
+      "Text"
+     ]
+    },
+    "value": {
+     "range": [
+      "Boolean",
+      "Number",
+      "QualitativeValue",
+      "StructuredValue",
+      "Text"
+     ]
+    },
+    "valueGroup": {
+     "range": [
+      "Text"
+     ]
+    },
+    "valueReference": {
+     "range": [
+      "DefinedTerm",
+      "Enumeration",
+      "MeasurementTypeEnumeration",
+      "PropertyValue",
+      "QualitativeValue",
+      "QuantitativeValue",
+      "StructuredValue",
+      "Text"
+     ]
+    }
+   }
+  },
+  "Rating": {
+   "found": true,
+   "parents": [
+    "Intangible"
+   ],
+   "props": {
+    "author": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "bestRating": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    },
+    "ratingExplanation": {
+     "range": [
+      "Text"
+     ]
+    },
+    "ratingValue": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    },
+    "reviewAspect": {
+     "range": [
+      "StructuredValue",
+      "Text"
+     ]
+    },
+    "worstRating": {
+     "range": [
+      "Number",
+      "Text"
+     ]
+    }
+   }
+  },
+  "AggregateRating": {
+   "found": true,
+   "parents": [
+    "Rating"
+   ],
+   "props": {
+    "itemReviewed": {
+     "range": [
+      "Thing"
+     ]
+    },
+    "ratingCount": {
+     "range": [
+      "Integer"
+     ]
+    },
+    "reviewCount": {
+     "range": [
+      "Integer"
+     ]
+    }
+   }
+  },
+  "Brand": {
+   "found": true,
+   "parents": [
+    "Intangible"
+   ],
+   "props": {
+    "aggregateRating": {
+     "range": [
+      "AggregateRating"
+     ]
+    },
+    "logo": {
+     "range": [
+      "ImageObject",
+      "URL"
+     ]
+    },
+    "review": {
+     "range": [
+      "Review"
+     ]
+    },
+    "slogan": {
+     "range": [
+      "Text"
+     ]
+    }
+   }
+  },
+  "Organization": {
+   "found": true,
+   "parents": [
+    "Thing"
+   ],
+   "props": {
+    "acceptedPaymentMethod": {
+     "range": [
+      "LoanOrCredit",
+      "PaymentMethod",
+      "Text"
+     ]
+    },
+    "actionableFeedbackPolicy": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "address": {
+     "range": [
+      "PostalAddress",
+      "Text"
+     ]
+    },
+    "agentInteractionStatistic": {
+     "range": [
+      "InteractionCounter"
+     ]
+    },
+    "aggregateRating": {
+     "range": [
+      "AggregateRating"
+     ]
+    },
+    "alumni": {
+     "range": [
+      "Person"
+     ]
+    },
+    "areaServed": {
+     "range": [
+      "AdministrativeArea",
+      "GeoShape",
+      "Place",
+      "Text"
+     ]
+    },
+    "authorizedRepresentative": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "award": {
+     "range": [
+      "Text"
+     ]
+    },
+    "awards": {
+     "range": [
+      "Text"
+     ]
+    },
+    "brand": {
+     "range": [
+      "Brand",
+      "Organization"
+     ]
+    },
+    "companyRegistration": {
+     "range": [
+      "Certification"
+     ]
+    },
+    "contactPoint": {
+     "range": [
+      "ContactPoint"
+     ]
+    },
+    "contactPoints": {
+     "range": [
+      "ContactPoint"
+     ]
+    },
+    "correctionsPolicy": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "department": {
+     "range": [
+      "Organization"
+     ]
+    },
+    "dissolutionDate": {
+     "range": [
+      "Date"
+     ]
+    },
+    "diversityPolicy": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "diversityStaffingReport": {
+     "range": [
+      "Article",
+      "URL"
+     ]
+    },
+    "duns": {
+     "range": [
+      "Text"
+     ]
+    },
+    "email": {
+     "range": [
+      "Text"
+     ]
+    },
+    "employee": {
+     "range": [
+      "Person"
+     ]
+    },
+    "employees": {
+     "range": [
+      "Person"
+     ]
+    },
+    "ethicsPolicy": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "event": {
+     "range": [
+      "Event"
+     ]
+    },
+    "events": {
+     "range": [
+      "Event"
+     ]
+    },
+    "faxNumber": {
+     "range": [
+      "Text"
+     ]
+    },
+    "founder": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "founders": {
+     "range": [
+      "Person"
+     ]
+    },
+    "foundingDate": {
+     "range": [
+      "Date"
+     ]
+    },
+    "foundingLocation": {
+     "range": [
+      "Place"
+     ]
+    },
+    "funder": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "funding": {
+     "range": [
+      "Grant"
+     ]
+    },
+    "globalLocationNumber": {
+     "range": [
+      "Text"
+     ]
+    },
+    "hasCertification": {
+     "range": [
+      "Certification"
+     ]
+    },
+    "hasCredential": {
+     "range": [
+      "Credential"
+     ]
+    },
+    "hasGS1DigitalLink": {
+     "range": [
+      "URL"
+     ]
+    },
+    "hasMemberProgram": {
+     "range": [
+      "MemberProgram"
+     ]
+    },
+    "hasMerchantReturnPolicy": {
+     "range": [
+      "MerchantReturnPolicy"
+     ]
+    },
+    "hasOfferCatalog": {
+     "range": [
+      "OfferCatalog"
+     ]
+    },
+    "hasPOS": {
+     "range": [
+      "Place"
+     ]
+    },
+    "hasProductReturnPolicy": {
+     "range": [
+      "ProductReturnPolicy"
+     ]
+    },
+    "hasShippingService": {
+     "range": [
+      "ShippingService"
+     ]
+    },
+    "interactionStatistic": {
+     "range": [
+      "InteractionCounter"
+     ]
+    },
+    "isicV4": {
+     "range": [
+      "Text"
+     ]
+    },
+    "iso6523Code": {
+     "range": [
+      "Text"
+     ]
+    },
+    "keywords": {
+     "range": [
+      "DefinedTerm",
+      "Text",
+      "URL"
+     ]
+    },
+    "knowsAbout": {
+     "range": [
+      "Text",
+      "Thing",
+      "URL"
+     ]
+    },
+    "knowsLanguage": {
+     "range": [
+      "Language",
+      "Text"
+     ]
+    },
+    "legalAddress": {
+     "range": [
+      "PostalAddress"
+     ]
+    },
+    "legalName": {
+     "range": [
+      "Text"
+     ]
+    },
+    "legalRepresentative": {
+     "range": [
+      "Person"
+     ]
+    },
+    "leiCode": {
+     "range": [
+      "Text"
+     ]
+    },
+    "location": {
+     "range": [
+      "Place",
+      "PostalAddress",
+      "Text",
+      "VirtualLocation"
+     ]
+    },
+    "logo": {
+     "range": [
+      "ImageObject",
+      "URL"
+     ]
+    },
+    "makesOffer": {
+     "range": [
+      "Offer"
+     ]
+    },
+    "member": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "memberOf": {
+     "range": [
+      "MemberProgramTier",
+      "Organization",
+      "ProgramMembership"
+     ]
+    },
+    "members": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "naics": {
+     "range": [
+      "Text"
+     ]
+    },
+    "nonprofitStatus": {
+     "range": [
+      "NonprofitType"
+     ]
+    },
+    "numberOfEmployees": {
+     "range": [
+      "QuantitativeValue"
+     ]
+    },
+    "ownershipFundingInfo": {
+     "range": [
+      "AboutPage",
+      "CreativeWork",
+      "Text",
+      "URL"
+     ]
+    },
+    "owns": {
+     "range": [
+      "Thing"
+     ]
+    },
+    "parentOrganization": {
+     "range": [
+      "Organization"
+     ]
+    },
+    "publishingPrinciples": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "review": {
+     "range": [
+      "Review"
+     ]
+    },
+    "reviews": {
+     "range": [
+      "Review"
+     ]
+    },
+    "seeks": {
+     "range": [
+      "Demand"
+     ]
+    },
+    "serviceArea": {
+     "range": [
+      "AdministrativeArea",
+      "GeoShape",
+      "Place"
+     ]
+    },
+    "skills": {
+     "range": [
+      "DefinedTerm",
+      "Text"
+     ]
+    },
+    "slogan": {
+     "range": [
+      "Text"
+     ]
+    },
+    "sponsor": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "subOrganization": {
+     "range": [
+      "Organization"
+     ]
+    },
+    "taxID": {
+     "range": [
+      "Text"
+     ]
+    },
+    "telephone": {
+     "range": [
+      "Text"
+     ]
+    },
+    "unnamedSourcesPolicy": {
+     "range": [
+      "CreativeWork",
+      "URL"
+     ]
+    },
+    "vatID": {
+     "range": [
+      "Text"
+     ]
+    }
+   }
+  },
+  "MerchantReturnPolicy": {
+   "found": true,
+   "parents": [
+    "Intangible"
+   ],
+   "props": {
+    "additionalProperty": {
+     "range": [
+      "PropertyValue"
+     ]
+    },
+    "applicableCountry": {
+     "range": [
+      "Country",
+      "Text"
+     ]
+    },
+    "customerRemorseReturnFees": {
+     "range": [
+      "ReturnFeesEnumeration"
+     ]
+    },
+    "customerRemorseReturnLabelSource": {
+     "range": [
+      "ReturnLabelSourceEnumeration"
+     ]
+    },
+    "customerRemorseReturnShippingFeesAmount": {
+     "range": [
+      "MonetaryAmount"
+     ]
+    },
+    "inStoreReturnsOffered": {
+     "range": [
+      "Boolean"
+     ]
+    },
+    "itemCondition": {
+     "range": [
+      "OfferItemCondition"
+     ]
+    },
+    "itemDefectReturnFees": {
+     "range": [
+      "ReturnFeesEnumeration"
+     ]
+    },
+    "itemDefectReturnLabelSource": {
+     "range": [
+      "ReturnLabelSourceEnumeration"
+     ]
+    },
+    "itemDefectReturnShippingFeesAmount": {
+     "range": [
+      "MonetaryAmount"
+     ]
+    },
+    "merchantReturnDays": {
+     "range": [
+      "Date",
+      "DateTime",
+      "Integer"
+     ]
+    },
+    "merchantReturnLink": {
+     "range": [
+      "URL"
+     ]
+    },
+    "refundType": {
+     "range": [
+      "RefundTypeEnumeration"
+     ]
+    },
+    "restockingFee": {
+     "range": [
+      "MonetaryAmount",
+      "Number"
+     ]
+    },
+    "returnFees": {
+     "range": [
+      "ReturnFeesEnumeration"
+     ]
+    },
+    "returnLabelSource": {
+     "range": [
+      "ReturnLabelSourceEnumeration"
+     ]
+    },
+    "returnMethod": {
+     "range": [
+      "ReturnMethodEnumeration"
+     ]
+    },
+    "returnPolicyCategory": {
+     "range": [
+      "MerchantReturnEnumeration"
+     ]
+    },
+    "returnPolicyCountry": {
+     "range": [
+      "Country",
+      "Text"
+     ]
+    },
+    "returnPolicySeasonalOverride": {
+     "range": [
+      "MerchantReturnPolicySeasonalOverride"
+     ]
+    },
+    "returnShippingFeesAmount": {
+     "range": [
+      "MonetaryAmount"
+     ]
+    },
+    "validForMemberTier": {
+     "range": [
+      "MemberProgramTier"
+     ]
+    }
+   }
+  },
+  "OfferShippingDetails": {
+   "found": true,
+   "parents": [
+    "StructuredValue"
+   ],
+   "props": {
+    "deliveryTime": {
+     "range": [
+      "ShippingDeliveryTime"
+     ]
+    },
+    "depth": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    },
+    "doesNotShip": {
+     "range": [
+      "Boolean"
+     ]
+    },
+    "hasShippingService": {
+     "range": [
+      "ShippingService"
+     ]
+    },
+    "height": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    },
+    "provider": {
+     "range": [
+      "Organization",
+      "Person"
+     ]
+    },
+    "shippingDestination": {
+     "range": [
+      "DefinedRegion"
+     ]
+    },
+    "shippingLabel": {
+     "range": [
+      "Text"
+     ]
+    },
+    "shippingOrigin": {
+     "range": [
+      "DefinedRegion"
+     ]
+    },
+    "shippingRate": {
+     "range": [
+      "MonetaryAmount",
+      "ShippingRateSettings"
+     ]
+    },
+    "shippingSettingsLink": {
+     "range": [
+      "URL"
+     ]
+    },
+    "transitTimeLabel": {
+     "range": [
+      "Text"
+     ]
+    },
+    "validForMemberTier": {
+     "range": [
+      "MemberProgramTier"
+     ]
+    },
+    "weight": {
+     "range": [
+      "Mass",
+      "QuantitativeValue"
+     ]
+    },
+    "width": {
+     "range": [
+      "Distance",
+      "QuantitativeValue"
+     ]
+    }
+   }
+  },
+  "DefinedTerm": {
+   "found": true,
+   "parents": [
+    "Intangible"
+   ],
+   "props": {
+    "about": {
+     "range": [
+      "Thing"
+     ]
+    },
+    "inDefinedTermSet": {
+     "range": [
+      "DefinedTermSet",
+      "URL"
+     ]
+    },
+    "termCode": {
+     "range": [
+      "Text"
+     ]
+    }
+   }
+  }
+ },
+ "enums": {
+  "ItemAvailability": [
+   "BackOrder",
+   "Discontinued",
+   "InStock",
+   "InStoreOnly",
+   "LimitedAvailability",
+   "MadeToOrder",
+   "OnlineOnly",
+   "OutOfStock",
+   "PreOrder",
+   "PreSale",
+   "Reserved",
+   "SoldOut"
+  ],
+  "OfferItemCondition": [
+   "DamagedCondition",
+   "NewCondition",
+   "RefurbishedCondition",
+   "UsedCondition"
+  ],
+  "PriceTypeEnumeration": [
+   "InvoicePrice",
+   "ListPrice",
+   "MSRP",
+   "MaximumRetailPrice",
+   "MinimumAdvertisedPrice",
+   "RegularPrice",
+   "SRP",
+   "SalePrice",
+   "StrikethroughPrice"
+  ]
+ }
+}

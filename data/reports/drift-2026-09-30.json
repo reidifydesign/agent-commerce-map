@@ -1,0 +1,44 @@
+{
+  "generated": "2026-09-30",
+  "pinnedRead": "2026-09-30",
+  "compared": {
+    "acp": {
+      "pinned": "spec 2026-04-17",
+      "now": "spec unreleased (main)"
+    },
+    "ucp": {
+      "pinned": "release v2026-08-25",
+      "now": "main",
+      "ref": "main"
+    },
+    "schemaorg": {
+      "pinned": "V30.1",
+      "now": "latest"
+    }
+  },
+  "brokenPaths": [],
+  "changes": {
+    "acp": {
+      "added": [
+        "Product.last_update_id"
+      ],
+      "removed": []
+    },
+    "ucp": {
+      "added": [],
+      "removed": []
+    },
+    "schemaorg": {
+      "added": [],
+      "removed": []
+    },
+    "schemaorgEnums": {}
+  },
+  "uncovered": {
+    "acp": [
+      "Product.last_update_id"
+    ],
+    "ucp": []
+  },
+  "ok": true
+}

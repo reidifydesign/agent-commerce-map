@@ -1,0 +1,460 @@
+{
+  "meta": {
+    "verified": "2026-09-30",
+    "scope": "Catalog data only: the Product and Variant objects of the ACP product feed and the UCP shopping catalog, against schema.org Product, ProductGroup and Offer. Checkout, payment, order and fulfilment objects are out of scope.",
+    "reading": "Each path is checked against the pinned snapshots in data/snapshots by the test suite and by the drift command. A path that stops resolving fails the build.",
+    "groups": {
+      "identity": "Identity",
+      "text": "Text",
+      "media": "Media",
+      "price": "Price",
+      "availability": "Availability",
+      "condition": "Condition",
+      "taxonomy": "Categories and labels",
+      "variants": "Variants and options",
+      "seller": "Seller",
+      "proof": "Ratings",
+      "feed": "Feed level",
+      "outside": "In schema.org, carried by neither protocol"
+    }
+  },
+  "rows": [
+    {
+      "id": "product-id",
+      "group": "identity",
+      "concept": "Product id",
+      "acp": [{ "path": "Product.id", "note": "required" }],
+      "ucp": [{ "path": "Product.id", "note": "required, a global id (GID)" }],
+      "schemaorg": [{ "path": "ProductGroup.productGroupID", "note": "only on ProductGroup. A single product with no variants has no group id, so use its @id" }],
+      "transform": "Use productGroupID, else the product's @id."
+    },
+    {
+      "id": "variant-id",
+      "group": "identity",
+      "concept": "Variant id",
+      "acp": [{ "path": "Variant.id", "note": "required, stable and global" }],
+      "ucp": [{ "path": "Variant.id", "note": "required, used as the item id in checkout" }],
+      "schemaorg": [
+        { "path": "Product.sku" },
+        { "path": "Product.productID" }
+      ],
+      "transform": "Use sku, else productID, else @id. Never invent one."
+    },
+    {
+      "id": "sku",
+      "group": "identity",
+      "concept": "Merchant SKU",
+      "acp": null,
+      "ucp": [{ "path": "Variant.sku", "note": "business-assigned, kept apart from the id" }],
+      "schemaorg": [{ "path": "Product.sku" }],
+      "gap": "ACP has no separate sku field, so the SKU has to double as Variant.id."
+    },
+    {
+      "id": "handle",
+      "group": "identity",
+      "concept": "URL slug",
+      "acp": null,
+      "ucp": [{ "path": "Product.handle" }, { "path": "Variant.handle" }],
+      "schemaorg": null,
+      "gap": "Only UCP carries a slug. schema.org has no slug property; the slug lives inside the url."
+    },
+    {
+      "id": "barcodes",
+      "group": "identity",
+      "concept": "Barcodes (GTIN, UPC, EAN)",
+      "acp": [{ "path": "Variant.barcodes[].type" }, { "path": "Variant.barcodes[].value" }],
+      "ucp": [{ "path": "Variant.barcodes[].type" }, { "path": "Variant.barcodes[].value" }],
+      "schemaorg": [
+        { "path": "Product.gtin" },
+        { "path": "Product.gtin8" },
+        { "path": "Product.gtin12" },
+        { "path": "Product.gtin13" },
+        { "path": "Product.gtin14" }
+      ],
+      "transform": "schema.org names the scheme in the property (gtin13). Both protocols take a type string plus a value, so this tool writes type GTIN, which is never wrong."
+    },
+    {
+      "id": "mpn",
+      "group": "identity",
+      "concept": "Manufacturer part number",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Product.mpn" }],
+      "gap": "Neither protocol has a part number field. The barcode type is an open string in both, so a custom type is possible but not defined."
+    },
+    {
+      "id": "title",
+      "group": "text",
+      "concept": "Title",
+      "acp": [{ "path": "Product.title", "note": "optional on the product" }, { "path": "Variant.title", "note": "required on the variant" }],
+      "ucp": [{ "path": "Product.title", "note": "required" }, { "path": "Variant.title", "note": "required, for example Blue / Large" }],
+      "schemaorg": [{ "path": "Product.name" }],
+      "transform": "A variant title is usually the product name plus its options."
+    },
+    {
+      "id": "description",
+      "group": "text",
+      "concept": "Description",
+      "acp": [{ "path": "Product.description.plain" }, { "path": "Product.description.html" }, { "path": "Product.description.markdown" }, { "path": "Variant.description.plain" }],
+      "ucp": [{ "path": "Product.description.plain" }, { "path": "Product.description.html" }, { "path": "Product.description.markdown" }, { "path": "Variant.description.plain" }],
+      "schemaorg": [{ "path": "Product.description" }],
+      "transform": "schema.org holds one text string, which goes into the plain slot. UCP marks description required on both Product and Variant.",
+      "gap": "Both protocols want a description on each variant if you use one. schema.org usually has it only on the product."
+    },
+    {
+      "id": "url",
+      "group": "text",
+      "concept": "Canonical page URL",
+      "acp": [{ "path": "Product.url" }, { "path": "Variant.url" }],
+      "ucp": [{ "path": "Product.url" }, { "path": "Variant.url" }],
+      "schemaorg": [{ "path": "Product.url" }, { "path": "Offer.url" }]
+    },
+    {
+      "id": "media",
+      "group": "media",
+      "concept": "Images and other media",
+      "acp": [{ "path": "Product.media[].url", "note": "first item is the primary listing asset on a variant" }, { "path": "Variant.media[].url" }],
+      "ucp": [{ "path": "Product.media[].url", "note": "first item is the featured media" }, { "path": "Variant.media[].url" }],
+      "schemaorg": [{ "path": "Product.image", "note": "a URL or an ImageObject" }]
+    },
+    {
+      "id": "media-type",
+      "group": "media",
+      "concept": "Media kind",
+      "acp": [{ "path": "Product.media[].type", "note": "image, video or model" }],
+      "ucp": [{ "path": "Product.media[].type", "note": "image, video or model_3d" }],
+      "schemaorg": null,
+      "gap": "schema.org says the kind through the class (ImageObject, VideoObject). The two protocols also spell the 3D value differently: model in ACP, model_3d in UCP."
+    },
+    {
+      "id": "media-alt",
+      "group": "media",
+      "concept": "Alt text",
+      "acp": [{ "path": "Product.media[].alt_text" }],
+      "ucp": [{ "path": "Product.media[].alt_text" }],
+      "schemaorg": [{ "path": "ImageObject.caption", "note": "closest match. A caption is shown to readers, alt text is not, so do not copy one into the other blindly" }]
+    },
+    {
+      "id": "media-size",
+      "group": "media",
+      "concept": "Media width and height in pixels",
+      "acp": [{ "path": "Product.media[].width" }, { "path": "Product.media[].height" }],
+      "ucp": [{ "path": "Product.media[].width" }, { "path": "Product.media[].height" }],
+      "schemaorg": [{ "path": "ImageObject.width" }, { "path": "ImageObject.height" }],
+      "transform": "Both protocols want integer pixels. schema.org allows a Distance or QuantitativeValue, so read the number and check the unit."
+    },
+    {
+      "id": "price-amount",
+      "group": "price",
+      "concept": "Selling price",
+      "acp": [{ "path": "Variant.price.amount", "note": "integer, ISO 4217 minor units" }],
+      "ucp": [{ "path": "Variant.price.amount", "note": "integer, ISO 4217 minor units" }],
+      "schemaorg": [{ "path": "Offer.price", "note": "a number or text in major units, for example 19.99" }],
+      "transform": "Multiply into minor units by the currency's exponent: 19.99 USD becomes 1999, 500 JPY stays 500, 1.250 KWD becomes 1250."
+    },
+    {
+      "id": "price-currency",
+      "group": "price",
+      "concept": "Currency",
+      "acp": [{ "path": "Variant.price.currency" }],
+      "ucp": [{ "path": "Variant.price.currency" }],
+      "schemaorg": [{ "path": "Offer.priceCurrency" }]
+    },
+    {
+      "id": "list-price",
+      "group": "price",
+      "concept": "List price before discount",
+      "acp": [{ "path": "Variant.list_price.amount" }],
+      "ucp": [{ "path": "Variant.list_price.amount", "note": "for strikethrough display" }],
+      "schemaorg": [
+        { "path": "Offer.priceSpecification", "note": "a UnitPriceSpecification" },
+        { "path": "UnitPriceSpecification.priceType", "note": "ListPrice, MSRP or StrikethroughPrice" }
+      ],
+      "transform": "schema.org has no list price property. The convention is a second price specification marked with a priceType."
+    },
+    {
+      "id": "unit-price",
+      "group": "price",
+      "concept": "Unit price (per 100 ml, per kg)",
+      "acp": [
+        { "path": "Variant.unit_price.amount" },
+        { "path": "Variant.unit_price.measure.value", "note": "a number" },
+        { "path": "Variant.unit_price.measure.unit" },
+        { "path": "Variant.unit_price.reference.value" },
+        { "path": "Variant.unit_price.reference.unit" }
+      ],
+      "ucp": [
+        { "path": "Variant.unit_price.amount" },
+        { "path": "Variant.unit_price.measure.value", "note": "an integer, scaled by measure.scale" },
+        { "path": "Variant.unit_price.measure.unit", "note": "a UN/CEFACT Rec20 code where one fits" },
+        { "path": "Variant.unit_price.measure.scale" },
+        { "path": "Variant.unit_price.reference.value" },
+        { "path": "Variant.unit_price.reference.unit" }
+      ],
+      "schemaorg": [
+        { "path": "UnitPriceSpecification.referenceQuantity", "note": "the reference amount only" },
+        { "path": "UnitPriceSpecification.unitCode" }
+      ],
+      "gap": "Both protocols also want the pack measure (a 750 ml bottle). schema.org has no slot for it inside the price specification."
+    },
+    {
+      "id": "price-range",
+      "group": "price",
+      "concept": "Price range across variants",
+      "acp": null,
+      "ucp": [{ "path": "Product.price_range.min.amount", "note": "required on the product" }, { "path": "Product.price_range.max.amount" }, { "path": "Product.list_price_range.min.amount" }],
+      "schemaorg": [{ "path": "AggregateOffer.lowPrice" }, { "path": "AggregateOffer.highPrice" }],
+      "gap": "ACP has no product-level range. Agents derive it from the variants."
+    },
+    {
+      "id": "quantity-unit",
+      "group": "price",
+      "concept": "Sale basis (per each, per kg, per hour)",
+      "acp": null,
+      "ucp": [{ "path": "Variant.quantity_unit.unit" }, { "path": "Variant.quantity_unit.increment" }],
+      "schemaorg": [{ "path": "Offer.eligibleQuantity", "note": "partial match" }, { "path": "UnitPriceSpecification.unitCode" }],
+      "gap": "Only UCP states what one unit of quantity means and in what steps it can be ordered."
+    },
+    {
+      "id": "price-valid-until",
+      "group": "price",
+      "concept": "Price expiry date",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Offer.priceValidUntil" }],
+      "gap": "Neither protocol has an expiry. Both expect a current price, refreshed by the feed or the live call."
+    },
+    {
+      "id": "available-flag",
+      "group": "availability",
+      "concept": "Can it be bought now",
+      "acp": [{ "path": "Variant.availability.available" }],
+      "ucp": [{ "path": "Variant.availability.available" }],
+      "schemaorg": [{ "path": "Offer.availability", "note": "derive the boolean from the status" }],
+      "transform": "true for InStock and LimitedAvailability, false for OutOfStock, SoldOut and Discontinued. Left unset for BackOrder and PreOrder, which is a merchant choice."
+    },
+    {
+      "id": "availability-status",
+      "group": "availability",
+      "concept": "Availability status",
+      "acp": [{ "path": "Variant.availability.status", "note": "in_stock, limited_stock, backorder, preorder, out_of_stock, discontinued" }],
+      "ucp": [{ "path": "Variant.availability.status", "note": "in_stock, backorder, preorder, out_of_stock, discontinued" }],
+      "schemaorg": [{ "path": "Offer.availability", "note": "twelve ItemAvailability values" }],
+      "gap": "limited_stock exists in ACP only. InStoreOnly, OnlineOnly, MadeToOrder and Reserved have no equivalent in either protocol."
+    },
+    {
+      "id": "inventory-level",
+      "group": "availability",
+      "concept": "Stock quantity",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Offer.inventoryLevel" }],
+      "gap": "Neither protocol sends stock counts. Only the status leaves the shop."
+    },
+    {
+      "id": "condition",
+      "group": "condition",
+      "concept": "Item condition (new, used)",
+      "acp": [{ "path": "Variant.condition", "note": "a list of merchant labels, example new" }],
+      "ucp": null,
+      "schemaorg": [{ "path": "Offer.itemCondition" }, { "path": "Product.itemCondition" }],
+      "gap": "UCP has no condition field, which matters for second-hand and refurbished stock."
+    },
+    {
+      "id": "categories",
+      "group": "taxonomy",
+      "concept": "Category",
+      "acp": [{ "path": "Variant.categories[].value", "note": "on the variant only, the ACP Product has no categories" }, { "path": "Variant.categories[].taxonomy" }],
+      "ucp": [{ "path": "Product.categories[].value" }, { "path": "Product.categories[].taxonomy" }, { "path": "Variant.categories[].value" }],
+      "schemaorg": [{ "path": "Product.category", "note": "text, a URL or a Thing. Usually a Google product category path or id" }],
+      "transform": "Both protocols name the taxonomy: google_product_category, shopify or merchant. A bare category in schema.org does not say which, so the tool leaves the taxonomy out."
+    },
+    {
+      "id": "tags",
+      "group": "taxonomy",
+      "concept": "Tags and keywords",
+      "acp": null,
+      "ucp": [{ "path": "Product.tags" }, { "path": "Variant.tags" }],
+      "schemaorg": [{ "path": "Product.keywords" }],
+      "gap": "ACP has no tags field."
+    },
+    {
+      "id": "custom-data",
+      "group": "taxonomy",
+      "concept": "Custom attributes",
+      "acp": null,
+      "ucp": [{ "path": "Product.metadata" }, { "path": "Variant.metadata" }],
+      "schemaorg": [{ "path": "Product.additionalProperty", "note": "a list of PropertyValue" }],
+      "gap": "ACP has no extension bag on the feed Product. UCP's metadata is the only place for data such as material or origin."
+    },
+    {
+      "id": "variants",
+      "group": "variants",
+      "concept": "Variants grouped under a product",
+      "acp": [{ "path": "Product.variants", "note": "required" }],
+      "ucp": [{ "path": "Product.variants", "note": "required, the first is the featured variant" }],
+      "schemaorg": [
+        { "path": "ProductGroup.hasVariant" },
+        { "path": "Product.isVariantOf" },
+        { "path": "Product.inProductGroupWithID" }
+      ],
+      "transform": "A ProductGroup with hasVariant maps one to one. A lone Product becomes a product with one variant."
+    },
+    {
+      "id": "variant-options",
+      "group": "variants",
+      "concept": "Which option values this variant has",
+      "acp": [{ "path": "Variant.variant_options[].name" }, { "path": "Variant.variant_options[].value" }],
+      "ucp": [{ "path": "Variant.options[].name" }, { "path": "Variant.options[].label", "note": "called label, not value" }, { "path": "Variant.options[].id" }],
+      "schemaorg": [
+        { "path": "ProductGroup.variesBy" },
+        { "path": "Product.color" },
+        { "path": "Product.size" },
+        { "path": "Product.material" },
+        { "path": "Product.pattern" }
+      ],
+      "transform": "Read the names in variesBy, then read the matching property on each variant."
+    },
+    {
+      "id": "option-menu",
+      "group": "variants",
+      "concept": "The full menu of option choices",
+      "acp": null,
+      "ucp": [{ "path": "Product.options[].name" }, { "path": "Product.options[].values[].label" }],
+      "schemaorg": [{ "path": "ProductGroup.variesBy", "note": "names only. The values sit on each variant" }],
+      "gap": "ACP lists options per variant only."
+    },
+    {
+      "id": "seller-name",
+      "group": "seller",
+      "concept": "Seller name",
+      "acp": [{ "path": "Variant.seller.name" }],
+      "ucp": [{ "path": "Variant.seller.name" }],
+      "schemaorg": [{ "path": "Offer.seller" }, { "path": "Organization.name" }]
+    },
+    {
+      "id": "seller-links",
+      "group": "seller",
+      "concept": "Policy links (returns, shipping, privacy, terms)",
+      "acp": [{ "path": "Variant.seller.links[].type", "note": "privacy_policy, terms_of_service, refund_policy, shipping_policy, faq" }, { "path": "Variant.seller.links[].url" }],
+      "ucp": [{ "path": "Variant.seller.links[].type", "note": "same five well-known types" }, { "path": "Variant.seller.links[].url" }],
+      "schemaorg": [
+        { "path": "Offer.hasMerchantReturnPolicy" },
+        { "path": "MerchantReturnPolicy.merchantReturnLink", "note": "returns only" }
+      ],
+      "gap": "schema.org covers returns well and shipping through a different object. The protocols want one link per policy type."
+    },
+    {
+      "id": "marketplace",
+      "group": "seller",
+      "concept": "Marketplace the offer is listed on",
+      "acp": [{ "path": "Variant.marketplace.name" }],
+      "ucp": null,
+      "schemaorg": null,
+      "gap": "Only ACP has a marketplace field. schema.org has no direct equivalent."
+    },
+    {
+      "id": "rating",
+      "group": "proof",
+      "concept": "Aggregate rating",
+      "acp": null,
+      "ucp": [
+        { "path": "Product.rating.value" },
+        { "path": "Product.rating.scale_min" },
+        { "path": "Product.rating.scale_max" },
+        { "path": "Product.rating.count" },
+        { "path": "Variant.rating.value" }
+      ],
+      "schemaorg": [
+        { "path": "Product.aggregateRating" },
+        { "path": "AggregateRating.ratingCount" },
+        { "path": "Rating.ratingValue" },
+        { "path": "Rating.bestRating" },
+        { "path": "Rating.worstRating" }
+      ],
+      "transform": "ratingValue maps to value, bestRating to scale_max, worstRating to scale_min, ratingCount to count.",
+      "gap": "ACP carries no rating in the feed."
+    },
+    {
+      "id": "feed-country",
+      "group": "feed",
+      "concept": "Target country of the feed",
+      "acp": [{ "path": "FeedMetadata.target_country", "note": "on the feed, not on a product" }],
+      "ucp": null,
+      "schemaorg": [{ "path": "Offer.eligibleRegion", "note": "closest match, per offer" }],
+      "gap": "UCP has no such field on the Product and Variant types."
+    },
+    {
+      "id": "feed-identity",
+      "group": "feed",
+      "concept": "Feed id and last update time",
+      "acp": [{ "path": "FeedMetadata.id" }, { "path": "FeedMetadata.updated_at" }],
+      "ucp": null,
+      "schemaorg": null,
+      "gap": "ACP keeps catalog state on an agent-hosted feed that the merchant pushes to. UCP has no feed object on these types, and schema.org has no equivalent."
+    },
+    {
+      "id": "brand",
+      "group": "outside",
+      "concept": "Brand",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Product.brand" }],
+      "gap": "Neither Product nor Variant has a brand field. In UCP the only places are tags and metadata."
+    },
+    {
+      "id": "shipping",
+      "group": "outside",
+      "concept": "Shipping details",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Offer.shippingDetails" }],
+      "gap": "Shipping belongs to the checkout and fulfilment flows in both protocols. It is not a catalog field."
+    },
+    {
+      "id": "origin",
+      "group": "outside",
+      "concept": "Country of origin",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Product.countryOfOrigin" }],
+      "gap": "Matters to exporters and wholesalers. No slot in either catalog object."
+    },
+    {
+      "id": "weight-dimensions",
+      "group": "outside",
+      "concept": "Weight and dimensions",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Product.weight" }, { "path": "Product.width" }, { "path": "Product.height" }, { "path": "Product.depth" }],
+      "gap": "No slot in either catalog object."
+    },
+    {
+      "id": "material-certification",
+      "group": "outside",
+      "concept": "Material and certifications",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Product.material" }, { "path": "Product.hasCertification" }],
+      "gap": "Material can travel as a variant option in both protocols. Certifications have no slot."
+    },
+    {
+      "id": "reviews",
+      "group": "outside",
+      "concept": "Individual reviews",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Product.review" }],
+      "gap": "UCP carries the aggregate only. ACP carries neither."
+    },
+    {
+      "id": "related",
+      "group": "outside",
+      "concept": "Related and accessory products",
+      "acp": null,
+      "ucp": null,
+      "schemaorg": [{ "path": "Product.isRelatedTo" }, { "path": "Product.isAccessoryOrSparePartFor" }],
+      "gap": "No slot in either catalog object."
+    }
+  ]
+}

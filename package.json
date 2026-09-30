@@ -1,0 +1,41 @@
+{
+  "name": "agent-commerce-map",
+  "version": "0.1.0",
+  "description": "A dated crosswalk of ACP, UCP and schema.org Product fields, with a plain verdict on which agent-commerce protocol a small shop can ignore.",
+  "type": "module",
+  "bin": {
+    "agent-commerce-map": "bin/agent-commerce-map.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "data",
+    "demo",
+    "docs/WHICH-PROTOCOL.md",
+    "docs/CROSSWALK.md"
+  ],
+  "scripts": {
+    "test": "node scripts/test.mjs",
+    "snapshot": "node scripts/snapshot.mjs",
+    "docs": "node scripts/build-docs.mjs",
+    "drift": "node bin/agent-commerce-map.mjs drift"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agentic-commerce",
+    "acp",
+    "ucp",
+    "schema-org",
+    "x402",
+    "ecommerce",
+    "product-feed"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reidifydesign/agent-commerce-map.git"
+  },
+  "license": "MIT",
+  "author": "Rish Sadh (https://github.com/rishsadh)"
+}

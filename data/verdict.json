@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "verified": "2026-09-30",
+    "next_review": "2026-12-31",
+    "who": "A small shop here means a business that sells products online through a hosted platform (Shopify, WooCommerce, Etsy, Wix and the like), has no developers on staff, and does not want to run its own checkout API.",
+    "how_to_read": "This is one reading of dated public sources, not a guarantee and not financial advice. Each claim carries the page it came from and the date it was read. Protocols change, so check the date before you act.",
+    "caveat": "Neither the ACP nor the UCP specification text mentions schema.org or JSON-LD (searched in the specs on 2026-09-30). Both take product data through feeds or a merchant account such as Google Merchant Center. So the crosswalk is a map between three descriptions of the same product record. It is not evidence that an agent reads your page markup into either protocol."
+  },
+  "items": [
+    {
+      "id": "product-data",
+      "protocol": "Clean product data",
+      "verdict": "do-now",
+      "headline": "Do this now. It pays whichever protocol wins.",
+      "plain": "Keep one accurate product record: title, description, price, currency, availability, images, barcodes. Publish it as schema.org Product and Offer on your pages, and keep the same facts in your platform or Merchant Center feed. Every route below starts from that record.",
+      "evidence": [
+        {
+          "claim": "PayPal's explainer on the AI shopping protocols tells merchants to start by making their product catalog clear, with good titles and metadata.",
+          "publisher": "PayPal newsroom",
+          "url": "https://newsroom.paypal-corp.com/2026-01-22-Making-Sense-of-the-AI-Shopping-Protocol-Moment",
+          "published": "2026-01-21",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "Google's UCP checkout help page says Merchant Center stays the hub for product data, and that the best preparation is complete, current product data there.",
+          "publisher": "Google Merchant Center Help",
+          "url": "https://support.google.com/merchants/answer/16837055",
+          "published": "undated page",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "After ending Instant Checkout, OpenAI said merchants can share product feeds and promotions so their products are represented in ChatGPT.",
+          "publisher": "CNBC",
+          "url": "https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html",
+          "published": "2026-03-24",
+          "read": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "ucp",
+      "protocol": "UCP (Universal Commerce Protocol, Google and Shopify)",
+      "verdict": "wait",
+      "headline": "Do not build it yourself. Watch it, and check your platform.",
+      "plain": "UCP is the one wired into Google's own surfaces, AI Mode and Gemini. Google's help page says shoppers may see its checkout soon, that it is for selected merchants with products eligible in the US, Canada and Australia, that you join through an interest form, and that only products marked with the native_commerce attribute get the Buy button. Shopify says its agentic storefronts reach Google AI Mode and Gemini by default for eligible stores. So if you are on Shopify or already use Merchant Center, the work is your data, not the protocol. If you are on neither, this guide found no route for a small shop that does not need a developer.",
+      "evidence": [
+        {
+          "claim": "UCP checkout on Google is limited to selected merchants. The page lists the US, Canada and Australia, an interest form, the native_commerce product attribute and a Google Pay token accepted by your payment provider.",
+          "publisher": "Google Merchant Center Help",
+          "url": "https://support.google.com/merchants/answer/16837055",
+          "published": "undated page",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "Shopify says agentic storefronts are active by default for eligible stores and reach ChatGPT, Google AI Mode and Gemini, Microsoft Copilot and Meta, with Google reached through the Google and YouTube channel or Merchant Center.",
+          "publisher": "Shopify Help Center",
+          "url": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts",
+          "published": "undated page",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "UCP's governing council lists Google, Shopify and Stripe, and its latest release tag is v2026-08-25.",
+          "publisher": "UCP announcements page and GitHub releases",
+          "url": "https://github.com/Universal-Commerce-Protocol/ucp/releases/tag/v2026-08-25",
+          "published": "2026-08-25",
+          "read": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "acp",
+      "protocol": "ACP (Agentic Commerce Protocol, OpenAI and Stripe)",
+      "verdict": "ignore-checkout",
+      "headline": "Ignore the checkout API. The feed half may matter, through your platform.",
+      "plain": "ACP is marked beta in its own README. Its best-known feature, Instant Checkout in ChatGPT, was wound down in March 2026: OpenAI told Skift on 2026-03-05 that checkout was moving to apps, and CNBC reported on 2026-03-24 that merchants now use their own checkout while ChatGPT focuses on product discovery. What is left for a small shop is a product feed. The spec has a Feed API (spec 2026-04-17) where merchants push products. You should not write that yourself: use what your platform or payment provider offers.",
+      "evidence": [
+        {
+          "claim": "An OpenAI spokesperson said ChatGPT is prioritising search and product discovery, with ACP as the infrastructure connecting users to merchants, and Instant Checkout moving to apps.",
+          "publisher": "Skift",
+          "url": "https://skift.com/2026/03/05/openai-chatgpt-checkout-walkback/",
+          "published": "2026-03-05",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "CNBC reported OpenAI had pivoted away from Instant Checkout, let merchants use their own checkout, and opened product discovery to merchant feeds. Retailers named include Target, Sephora and Nordstrom.",
+          "publisher": "CNBC",
+          "url": "https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html",
+          "published": "2026-03-24",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "The ACP README shows a Beta status badge and says the spec is maintained by OpenAI and Stripe. MAINTAINERS.md also lists Meta. Spec releases so far: 2025-09-29, 2025-12-12, 2026-01-16, 2026-01-30 and 2026-04-17.",
+          "publisher": "agentic-commerce-protocol/agentic-commerce-protocol on GitHub",
+          "url": "https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/7fdd78df677a94dce04c770644b0fbbb1401272b/README.md",
+          "published": "2026-07-18 (commit date)",
+          "read": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "ap2",
+      "protocol": "AP2 (Agent Payments Protocol, Google)",
+      "verdict": "ignore",
+      "headline": "Ignore it. There is nothing for a shop to publish.",
+      "plain": "AP2 is a trust layer: signed mandates that prove what a buyer authorised, passed between platforms, merchants' systems and payment processors. UCP treats it as an optional extension. A small shop gets it, if at all, from the platform or payment provider that runs checkout. It has no catalog fields, so it does not appear in the crosswalk.",
+      "evidence": [
+        {
+          "claim": "The UCP docs describe AP2 as the trust layer, with the business signing checkout state and the platform sending signed mandates. It depends on the UCP checkout capability.",
+          "publisher": "UCP docs, page UCP and AP2",
+          "url": "https://github.com/Universal-Commerce-Protocol/ucp/blob/v2026-08-25/docs/documentation/ucp-and-ap2.md",
+          "published": "2026-08-25 (release tag)",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "PayPal's explainer describes AP2 as focused on security and verification, including telling legitimate shopping agents from bots.",
+          "publisher": "PayPal newsroom",
+          "url": "https://newsroom.paypal-corp.com/2026-01-22-Making-Sense-of-the-AI-Shopping-Protocol-Moment",
+          "published": "2026-01-21",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "The AP2 repository's latest release is v0.2.0 and its last push was 2026-06-17.",
+          "publisher": "google-agentic-commerce/AP2 on GitHub",
+          "url": "https://github.com/google-agentic-commerce/AP2/releases",
+          "published": "2026-04-28",
+          "read": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "x402",
+      "protocol": "x402 (HTTP 402 payments, x402 Foundation)",
+      "verdict": "ignore",
+      "headline": "Ignore it for a product shop. It fits selling digital access to agents.",
+      "plain": "x402 lets a server answer an HTTP request with a 402 and get paid, usually in stablecoins, before it responds. That suits an API, a dataset or an article sold per request. It does not sell a physical product with shipping and returns. Cloudflare's agent readiness checker looks for x402, UCP and ACP and does not count them toward the score, which tells you where the market sits. The testnet demo in this repo is for learning only.",
+      "evidence": [
+        {
+          "claim": "Cloudflare's Agent Readiness tool checks for x402, UCP and ACP, and says these checks do not currently count toward the score.",
+          "publisher": "Cloudflare blog",
+          "url": "https://blog.cloudflare.com/agent-readiness/",
+          "published": "2026-04-17",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "x402.org lists, for the last 30 days, 75.41M transactions, $24.24M volume, 94.06K buyers and 22K sellers, and names the x402 Foundation as steward.",
+          "publisher": "x402.org",
+          "url": "https://x402.org",
+          "published": "live counter, read 2026-09-30",
+          "read": "2026-09-30"
+        },
+        {
+          "claim": "The x402 v2 spec defines 402 responses with a PAYMENT-REQUIRED header, a PAYMENT-SIGNATURE header from the client and a PAYMENT-RESPONSE header back.",
+          "publisher": "x402-foundation/x402 on GitHub",
+          "url": "https://github.com/x402-foundation/x402/blob/6b6ee91fee027b540faabcb25774e73851006c3b/specs/transports-v2/http.md",
+          "published": "2026-09-29 (commit date)",
+          "read": "2026-09-30"
+        }
+      ]
+    }
+  ],
+  "unverified": [
+    "[[CONFIRM: date of the Linux Foundation announcement that launched the x402 Foundation. x402.org links to it but the page read did not state a date.]]",
+    "[[CONFIRM: whether Google's UCP checkout has opened beyond selected merchants since 2026-09-30. The help page is undated.]]",
+    "[[CONFIRM: which ACP feed ingestion routes a small merchant can actually reach without a developer. The spec defines the API, the read did not find a merchant sign-up page.]]"
+  ]
+}
