@@ -1,0 +1,5 @@
+[build]
+  publish = "public"
+
+# The edge function in netlify/edge-functions/x402-paywall.mjs declares its own path (/premium/*).
+# Set PAY_TO in the Netlify site settings to a public testnet address. There is no secret to set.
