@@ -1,0 +1,25 @@
+name: drift
+
+# Compares the pinned snapshots with the newest ACP, UCP and schema.org sources.
+# Fails if a crosswalk path no longer resolves, and keeps the report as an artifact.
+#
+# The schedule is DISABLED until launch. On launch day, uncomment the two lines under "schedule".
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '17 6 1 * *'
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node bin/agent-commerce-map.mjs drift --out drift-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drift-report
+          path: drift-report.json

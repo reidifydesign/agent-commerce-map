@@ -1,0 +1,1 @@
+{ "theme": "reidify", "pre": "Which agent-commerce protocol can a shop ", "accent": "ignore", "post": "?", "sub": "npx github:reidifydesign/agent-commerce-map verdict", "prompt": true, "repo": "reidifydesign/agent-commerce-map", "size": 64 }
