@@ -3,11 +3,11 @@ name: drift
 # Compares the pinned snapshots with the newest ACP, UCP and schema.org sources.
 # Fails if a crosswalk path no longer resolves, and keeps the report as an artifact.
 #
-# The schedule is DISABLED until launch. On launch day, uncomment the two lines under "schedule".
+# Runs on the 1st of each month at 06:17 UTC, and can also be started by hand.
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: '17 6 1 * *'
+  schedule:
+    - cron: '17 6 1 * *'
 
 jobs:
   drift:

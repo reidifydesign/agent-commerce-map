@@ -57,7 +57,7 @@ The crosswalk itself:
 - `data/snapshots` holds the exact ACP feed schema, UCP `Product` and `Variant` types and schema.org terms the rows were checked against, pinned to commits. `sources` prints them.
 - `npm test` checks every path in the table against those snapshots, and checks the prose claims that can be checked (for example that ACP has `limited_stock` and UCP does not, or that the ACP schema rejects unknown fields).
 - `agent-commerce-map drift` fetches the newest version of each source and reports paths that no longer resolve, fields added or removed, and fields the table does not cover yet. The first real run, from 2026-09-30, is in [data/reports](data/reports). It found one new unreleased ACP field, `last_update_id`, which is not in the table until it ships in a dated release.
-- `.github/workflows/drift.yml` runs it monthly. The schedule is commented out until the repo is public.
+- `.github/workflows/drift.yml` runs it monthly. It runs on the 1st of each month at 06:17 UTC.
 
 ## The x402 demo
 
